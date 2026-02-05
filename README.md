@@ -21,60 +21,26 @@ This course provides a comprehensive, hands-on introduction to the security and 
 
 ## Lab Curriculum
 
-The course is organized into **9 modules**, transitioning from foundations to advanced security integration.
+| Module | Lab | Topic | Link |
+|--------|-----|-------|------|
+| **1. Foundations** | 1a | DNN Training & Robust Model Baselines | [Notebook](module_01_foundations/Lab_1a_DNN_Training_and_Robust_Models.ipynb) |
+| | 1b | Threat Modeling & Attack Taxonomy | [Notebook](module_01_foundations/Lab_1b_Threat_Modeling_and_Attack_Taxonomy.ipynb) |
+| **2. Input Manipulation** | 2a | Evasion Attacks (FGSM, PGD) | [Notebook](module_02_input_manipulation/Lab_2a_Evasion_Attacks.ipynb) |
+| | 2b | Adversarial Prompt Engineering (LLMs) | [Notebook](module_02_input_manipulation/Lab_2b_Adversarial_Prompt_Engineering.ipynb) |
+| **3. Data Poisoning** | 3a | Label Flipping Attacks | [Notebook](module_03_data_poisoning/Lab_3a_Data_Poisoning_Label_Flipping.ipynb) |
+| | 3b | Backdoor & Trigger Injection | [Notebook](module_03_data_poisoning/Lab_3b_Data_Poisoning_Backdoor_Attacks.ipynb) |
+| **4. Model Poisoning** | 4a | Model Trojans & Supply Chain Attacks | [Notebook](module_04_model_poisoning/Lab_4a_Model_Trojans_and_Supply_Chain_Attacks.ipynb) |
+| | 4b | Trojan Detection & Certified Defenses | [Notebook](module_04_model_poisoning/Lab_4b_Trojan_Detection_and_Certified_Defenses.ipynb) |
+| **5. Availability** | 5a | Sponge Attacks & Resource Exhaustion | [Notebook](module_05_sponge_attacks/Lab_5a_Sponge_Attacks_and_Resource_Exhaustion.ipynb) |
+| | 5b | Sponge Attack Defenses | [Notebook](module_05_sponge_attacks/Lab_5b_Sponge_Attack_Defenses_and_Resource_Constraints.ipynb) |
+| **6. Confidentiality** | 6a | Membership Inference Attacks | [Notebook](module_06_confidentiality_attacks/Lab_6a_Membership_Inference_Attacks.ipynb) |
+| | 6b | Model Inversion & Feature Reconstruction | [Notebook](module_06_confidentiality_attacks/Lab_6b_Model_Inversion_Attacks_and_Defenses.ipynb) |
+| **7. Synthetic Data** | 7a | Tabular Synthetic Data (VAE, GAN) | [Notebook](module_07_synthetic_data_generation/Lab_7a_Tabular_Synthetic_Data_Generation.ipynb) |
+| | 7b | Time-Series Synthetic Data (Diffusion) | [Notebook](module_07_synthetic_data_generation/Lab_7b_Time_Series_Synthetic_Data_Generation.ipynb) |
+| **8. Defenses** | 8a | Differential Privacy & DP-SGD | [Notebook](module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb) |
+| | 8b | Federated Learning & Adversarial Training | [Notebook](module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
+| **9. Capstone** | 9 | End-to-End Secure ML Pipeline | [Notebook](module_09_capstone_integration/Lab_9_Capstone_End_to_End_Secure_ML_Pipeline.ipynb) |
 
-### Module 1: Foundations & Threat Modeling
-| Lab | Topic | Link |
-|-----|-------|------|
-| 1a | DNN Training & Robust Model Baselines | [Notebook](module_01_foundations/Lab_1a_DNN_Training_and_Robust_Models.ipynb) |
-| 1b | Threat Modeling & Attack Taxonomy | [Notebook](module_01_foundations/Lab_1b_Threat_Modeling_and_Attack_Taxonomy.ipynb) |
-
-### Module 2: Input Data Manipulation Attacks
-| Lab | Topic | Link |
-|-----|-------|------|
-| 2a | Evasion Attacks (FGSM, PGD) | [Notebook](module_02_input_manipulation/Lab_2a_Evasion_Attacks.ipynb) |
-| 2b | Adversarial Prompt Engineering (LLMs) | [Notebook](module_02_input_manipulation/Lab_2b_Adversarial_Prompt_Engineering.ipynb) |
-
-### Module 3: Integrity Attacks — Data Poisoning
-| Lab | Topic | Link |
-|-----|-------|------|
-| 3a | Data Poisoning Fundamentals (Label Flipping) | [Notebook](module_03_data_poisoning/Lab_3a_Data_Poisoning_Label_Flipping.ipynb) |
-| 3b | Backdoor & Trigger Injection | [Notebook](module_03_data_poisoning/Lab_3b_Data_Poisoning_Backdoor_Attacks.ipynb) |
-
-### Module 4: Integrity Attacks — Model Poisoning
-| Lab | Topic | Link |
-|-----|-------|------|
-| 4a | Model Trojans & Supply Chain Attacks | [Notebook](module_04_model_poisoning/Lab_4a_Model_Trojans_and_Supply_Chain_Attacks.ipynb) |
-| 4b | Trojan Detection & Certified Defenses | [Notebook](module_04_model_poisoning/Lab_4b_Trojan_Detection_and_Certified_Defenses.ipynb) |
-
-### Module 5: Availability Attacks
-| Lab | Topic | Link |
-|-----|-------|------|
-| 5a | Sponge Attacks & Resource Exhaustion | [Notebook](module_05_sponge_attacks/Lab_5a_Sponge_Attacks_and_Resource_Exhaustion.ipynb) |
-| 5b | Sponge Attack Defenses & Resource Constraints | [Notebook](module_05_sponge_attacks/Lab_5b_Sponge_Attack_Defenses_and_Resource_Constraints.ipynb) |
-
-### Module 6: Confidentiality Attacks
-| Lab | Topic | Link |
-|-----|-------|------|
-| 6a | Membership Inference Attacks | [Notebook](module_06_confidentiality_attacks/Lab_6a_Membership_Inference_Attacks.ipynb) |
-| 6b | Model Inversion & Feature Reconstruction | [Notebook](module_06_confidentiality_attacks/Lab_6b_Model_Inversion_Attacks_and_Defenses.ipynb) |
-
-### Module 7: Synthetic Data Generation
-| Lab | Topic | Link |
-|-----|-------|------|
-| 7a | Tabular Synthetic Data (VAE, GAN) | [Notebook](module_07_synthetic_data_generation/Lab_7a_Tabular_Synthetic_Data_Generation.ipynb) |
-| 7b | Time-Series Synthetic Data (LSTM-VAE, Diffusion) | [Notebook](module_07_synthetic_data_generation/Lab_7b_Time_Series_Synthetic_Data_Generation.ipynb) |
-
-### Module 8: Defenses & Secure Learning
-| Lab | Topic | Link |
-|-----|-------|------|
-| 8a | Differential Privacy & DP-SGD | [Notebook](module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb) |
-| 8b | Federated Learning & Adversarial Training | [Notebook](module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
-
-### Module 9: Integration & Capstone
-| Lab | Topic | Link |
-|-----|-------|------|
-| 9 | End-to-End Secure ML Pipeline | [Notebook](module_09_capstone_integration/Lab_9_Capstone_End_to_End_Secure_ML_Pipeline.ipynb) |
 
 ## Learning Outcomes
 
