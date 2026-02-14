@@ -17,7 +17,7 @@
 
 ## Course Overview
 
-This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 16 practical labs organized into 9 thematic modules.
+This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 15 practical labs organized into 9 thematic modules.
 
 ## Lab Curriculum
 
