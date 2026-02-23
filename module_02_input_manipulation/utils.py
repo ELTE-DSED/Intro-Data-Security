@@ -52,7 +52,7 @@ def display_adv_images(clean, adv, clean_res, adv_res, **kwargs):
     
     plt.figure(figsize=(8, 4))
     plt.subplot(1, 2, 1)
-    plt.imshow(clean.squeeze().cpu().numpy(), cmap='gray')
+    plt.imshow(clean.detach().squeeze().cpu().numpy(), cmap='gray')
     plt.title(f"Clean: {clean_label} ({clean_conf:.2f})")
     plt.axis('off')
     
@@ -62,7 +62,7 @@ def display_adv_images(clean, adv, clean_res, adv_res, **kwargs):
     plt.axis('off')
     plt.show()
 
-def test_untargeted_attack(untargeted_adv_attack, model, device, eps=8/255.):
+def test_untargeted_attack(untargeted_adv_attack, model, device, eps=8/255., **kwargs):
     model.eval()
     
     # Load a MNIST image (unnormalized [0,1])
@@ -80,7 +80,8 @@ def test_untargeted_attack(untargeted_adv_attack, model, device, eps=8/255.):
         true_labels, 
         model, 
         MNIST_NORMALIZE, 
-        eps=eps
+        eps=eps,
+        **kwargs
     ).squeeze(0)
 
     # Get adversarial prediction
@@ -93,4 +94,39 @@ def test_untargeted_attack(untargeted_adv_attack, model, device, eps=8/255.):
         adv_image,
         (label, confidence),
         (adv_label, adv_confidence)
+    )
+
+def test_targeted_attack(targeted_adv_attack, model, device, target_label=2, eps=8/255., **kwargs):
+    """Helper to test targeted adversarial attacks"""
+    model.eval()
+    
+    # Load a MNIST image (unnormalized [0,1])
+    image, true_label = load_example_image(preprocess=False)
+    image = image.to(device)
+    target_labels = torch.tensor([target_label]).to(device)
+
+    # Get initial prediction using normalized image
+    _, index, confidence = make_single_prediction(model, MNIST_NORMALIZE(image))
+    label = get_imagenet_label(index)
+
+    # Generate Adversarial Example
+    adv_image = targeted_adv_attack(
+        image.unsqueeze(0), 
+        target_labels, 
+        model, 
+        MNIST_NORMALIZE, 
+        eps=eps,
+        **kwargs
+    ).squeeze(0)
+
+    # Get adversarial prediction
+    _, adv_index, adv_confidence = make_single_prediction(model, MNIST_NORMALIZE(adv_image))
+    adv_label = get_imagenet_label(adv_index)
+
+    # Display Results
+    display_adv_images(
+        image, 
+        adv_image,
+        (label, confidence),
+        (f"Target: {target_label} (Pred: {adv_label})", adv_confidence)
     )
