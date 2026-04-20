@@ -33,8 +33,7 @@ This course provides a comprehensive, hands-on introduction to the security and 
 | | 5b | Sponge Attack Defenses | [Notebook](module_05_sponge_attacks/Lab_5b_Sponge_Attack_Defenses_and_Resource_Constraints.ipynb) |
 | **6. Confidentiality** | 6a | Membership Inference Attacks | [Notebook](module_06_confidentiality_attacks/Lab_6a_Membership_Inference_Attacks.ipynb) |
 | | 6b | Model Inversion & Feature Reconstruction | [Notebook](module_06_confidentiality_attacks/Lab_6b_Model_Inversion_Attacks_and_Defenses.ipynb) |
-| **7. Synthetic Data** | 7a | Tabular Synthetic Data (VAE, GAN) | [Notebook](module_07_synthetic_data_generation/Lab_7a_Tabular_Synthetic_Data_Generation.ipynb) |
-| | 7b | Time-Series Synthetic Data (Diffusion) | [Notebook](module_07_synthetic_data_generation/Lab_7b_Time_Series_Synthetic_Data_Generation.ipynb) |
+| **7. Synthetic Data** | 7 | Tabular Synthetic Data (VAE, GAN) | [Notebook](module_07_synthetic_data_generation/Lab_7_Tabular_Synthetic_Data_Generation.ipynb) |
 | **8. Defenses** | 8a | Differential Privacy & DP-SGD | [Notebook](module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb) |
 | | 8b | Federated Learning & Adversarial Training | [Notebook](module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
 | **9. Capstone** | 9 | End-to-End Secure ML Pipeline | [Notebook](module_09_capstone_integration/Lab_9_Capstone_End_to_End_Secure_ML_Pipeline.ipynb) |
