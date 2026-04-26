@@ -36,7 +36,6 @@ This course provides a comprehensive, hands-on introduction to the security and 
 | **7. Synthetic Data** | 7 | Tabular Synthetic Data (VAE, GAN) | [Notebook](module_07_synthetic_data_generation/Lab_7_Tabular_Synthetic_Data_Generation.ipynb) |
 | **8. Defenses** | 8a | Differential Privacy & DP-SGD | [Notebook](module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb) |
 | | 8b | Federated Learning & Adversarial Training | [Notebook](module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
-| **9. Capstone** | 9 | End-to-End Secure ML Pipeline | [Notebook](module_09_capstone_integration/Lab_9_Capstone_End_to_End_Secure_ML_Pipeline.ipynb) |
 
 
 ## Learning Outcomes
