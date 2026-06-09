@@ -39,8 +39,6 @@ This course provides a comprehensive introduction to the security and privacy of
 
 ## References & Acknowledgments
 
-This course is built upon foundational materials from:
-
 - [unica-mlsec/mlsec](https://github.com/unica-mlsec/mlsec) — Prof. Battista Biggio (University of Cagliari)
 - *Practical Data Privacy* — Katharine Jarmul (O'Reilly, 2023)
 - *Adversarial Machine Learning* — Goodfellow, Biggio et al. (Cambridge University Press)

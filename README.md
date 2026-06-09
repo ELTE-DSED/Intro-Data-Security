@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License"/>
 </p>
 
-> This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 15 practical labs organized into 9 thematic modules.
+> This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 13 practical labs organized into 8 thematic modules.
 
 ---
 
@@ -35,8 +35,6 @@
 | | 8b | Federated Learning & Adversarial Training | [Notebook](module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
 
 ## References & Acknowledgments
-
-This course is built upon foundational materials from:
 
 - [unica-mlsec/mlsec](https://github.com/unica-mlsec/mlsec) — Prof. Battista Biggio (University of Cagliari)
 - *Practical Data Privacy* — Katharine Jarmul (O'Reilly, 2023)
