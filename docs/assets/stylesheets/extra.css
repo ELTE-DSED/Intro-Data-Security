@@ -1,0 +1,43 @@
+/* 
+   Bulletproof Table Centering for Material for MkDocs 
+   Using Flexbox to override theme's default block behavior.
+*/
+
+/* 1. Target the scrollable wrapper and force its contents to center */
+.md-typeset__table {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  border: none !important;
+  margin-bottom: 2em !important;
+}
+
+/* 2. Target the table itself */
+.md-typeset__table table {
+  width: auto !important; /* Forces the table to shrink-wrap its content */
+  display: table !important;
+  margin: 0 !important; /* Margin-auto is not needed when using Flex align-items: center */
+  border-collapse: collapse !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Optional: adds a professional subtle shadow */
+}
+
+/* 3. Ensure cell text and images are centered */
+.md-typeset table th,
+.md-typeset table td {
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 12px 20px !important;
+  border: 1px solid var(--md-typeset-table-color, #e0e0e0) !important;
+}
+
+/* 4. Center images inside tables (like badges) */
+.md-typeset table td img {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 auto !important;
+}
+
+/* 5. Clean up the scroll wrapper background */
+.md-typeset__scrollwrap {
+  background: transparent !important;
+}
