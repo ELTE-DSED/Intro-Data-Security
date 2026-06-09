@@ -1,0 +1,46 @@
+site_name: IDaSec Practicum
+site_description: Hands-on labs for Adversarial Machine Learning, Privacy Attacks, and Secure AI Defenses.
+site_author: ELTE Department of Data Science and Engineering
+repo_url: https://github.com/ELTE-DSED/Intro-Data-Security
+repo_name: ELTE-DSED/Intro-Data-Security
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+
+nav:
+  - Home: index.md
+  - Curriculum:
+    - Module 1: Foundations: modules/module_01.md
+    - Module 2: Input Manipulation: modules/module_02.md
+    - Module 3: Data Poisoning: modules/module_03.md
+    - Module 4: Model Poisoning: modules/module_04.md
+    - Module 5: Availability: modules/module_05.md
+    - Module 6: Confidentiality: modules/module_06.md
+    - Module 7: Synthetic Data: modules/module_07.md
+    - Module 8: Defenses: modules/module_08.md
