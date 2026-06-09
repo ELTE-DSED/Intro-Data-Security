@@ -64,6 +64,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-<p align="center">
-  <b>© 2026 ELTE Department of Data Science and Engineering</b>
-</p>
+*Last updated: June 09, 2026*

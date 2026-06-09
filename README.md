@@ -63,7 +63,4 @@ This course is built upon foundational materials from:
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
-
-<p align="center">
-  <b>© 2026 ELTE Department of Data Science and Engineering</b>
-</p>
+© 2026 ELTE Department of Data Science and Engineering

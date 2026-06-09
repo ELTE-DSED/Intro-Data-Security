@@ -1,6 +1,7 @@
 site_name: IDaSec Practicum
 site_description: Hands-on labs for Adversarial Machine Learning, Privacy Attacks, and Secure AI Defenses.
 site_author: ELTE Department of Data Science and Engineering
+copyright: '© 2026 ELTE Department of Data Science and Engineering'
 repo_url: https://github.com/ELTE-DSED/Intro-Data-Security
 repo_name: ELTE-DSED/Intro-Data-Security
 
