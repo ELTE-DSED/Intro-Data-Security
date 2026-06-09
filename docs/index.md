@@ -7,8 +7,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License"/>
 </p>
 
-> **A hands-on practicum for adversarial machine learning, privacy attacks, and secure AI systems.**
----
+*Last updated: June 09, 2026*
 
 ## Instructors & Staff
 

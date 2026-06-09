@@ -33,6 +33,11 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js
 
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+
 nav:
   - Home: index.md
   - Curriculum:
