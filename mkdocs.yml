@@ -36,11 +36,11 @@ extra_javascript:
 nav:
   - Home: index.md
   - Curriculum:
-    - Module 1: Foundations: modules/module_01.md
-    - Module 2: Input Manipulation: modules/module_02.md
-    - Module 3: Data Poisoning: modules/module_03.md
-    - Module 4: Model Poisoning: modules/module_04.md
-    - Module 5: Availability: modules/module_05.md
-    - Module 6: Confidentiality: modules/module_06.md
-    - Module 7: Synthetic Data: modules/module_07.md
-    - Module 8: Defenses: modules/module_08.md
+    - "Module 1: Foundations": modules/module_01.md
+    - "Module 2: Input Manipulation": modules/module_02.md
+    - "Module 3: Data Poisoning": modules/module_03.md
+    - "Module 4: Model Poisoning": modules/module_04.md
+    - "Module 5: Availability": modules/module_05.md
+    - "Module 6: Confidentiality": modules/module_06.md
+    - "Module 7: Synthetic Data": modules/module_07.md
+    - "Module 8: Defenses": modules/module_08.md
