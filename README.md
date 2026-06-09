@@ -7,16 +7,12 @@
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License"/>
 </p>
 
-*Last updated: June 09, 2026*
+This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 15 practical labs organized into 9 thematic modules.
 
 ## Instructors & Staff
 
 - **Instructor**: Prof. Lendák Imre 
 - **Teaching Assistant**: Ahmed F. Lagha
-
-## Course Overview
-
-This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 15 practical labs organized into 9 thematic modules.
 
 ## Lab Curriculum
 
