@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Introduction to Data Security Practicum
 
 This course provides a comprehensive introduction to the security and privacy of machine learning systems. You will learn to *attack*, *defend*, and *audit* AI models through practical labs organized into 8 thematic modules.
