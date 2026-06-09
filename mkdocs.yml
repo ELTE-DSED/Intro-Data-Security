@@ -34,6 +34,9 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js
 
+extra:
+  generator: false
+
 plugins:
   - search
   - git-revision-date-localized:
