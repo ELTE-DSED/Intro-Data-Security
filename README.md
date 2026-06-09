@@ -7,7 +7,9 @@
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License"/>
 </p>
 
-This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 15 practical labs organized into 9 thematic modules.
+> This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 15 practical labs organized into 9 thematic modules.
+
+---
 
 ## Instructors & Staff
 
@@ -31,20 +33,6 @@ This course provides a comprehensive, hands-on introduction to the security and 
 | **7. Synthetic Data** | 7 | Tabular Synthetic Data (VAE, GAN) | [Notebook](module_07_synthetic_data_generation/Lab_7_Tabular_Synthetic_Data_Generation.ipynb) |
 | **8. Defenses** | 8a | Differential Privacy & DP-SGD | [Notebook](module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb) |
 | | 8b | Federated Learning & Adversarial Training | [Notebook](module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
-
-
-## Learning Outcomes
-
-By the end of this course, students will be able to:
-
-| # | Skill | Description |
-|---|-------|-------------|
-| 1 | **Understand** | Fundamental concepts of machine-learning security and privacy |
-| 2 | **Implement** | State-of-the-art attacks (Evasion, Poisoning, Inversion) in PyTorch |
-| 3 | **Evaluate** | Model robustness using quantitative metrics and certified bounds |
-| 4 | **Design** | Multi-layered defense strategies (DP, FL, Robust Training) for production |
-| 5 | **Generate** | Privacy-preserving synthetic data for sensitive domains (healthcare, finance) |
-
 
 ## References & Acknowledgments
 
