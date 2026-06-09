@@ -33,13 +33,13 @@ This course provides a comprehensive introduction to the security and privacy of
 
 ## Learning Outcomes
 
-| # | Skill | Description |
-|---|-------|-------------|
-| 1 | **Understand** | Fundamental concepts of machine-learning security and privacy |
-| 2 | **Implement** | State-of-the-art attacks (Evasion, Poisoning, Inversion) in PyTorch |
-| 3 | **Evaluate** | Model robustness using quantitative metrics and certified bounds |
-| 4 | **Design** | Multi-layered defense strategies (DP, FL, Robust Training) for production |
-| 5 | **Generate** | Privacy-preserving synthetic data for sensitive domains (healthcare, finance) |
+| Skill | Description |
+|-------|-------------|
+| Understand | Fundamental concepts of machine-learning security and privacy |
+| Implement | State-of-the-art attacks (Evasion, Poisoning, Inversion) in PyTorch |
+| Evaluate | Model robustness using quantitative metrics and certified bounds |
+| Design | Multi-layered defense strategies (DP, FL, Robust Training) for production |
+| Generate | Privacy-preserving synthetic data for sensitive domains (healthcare, finance) |
 
 
 ## References & Acknowledgments
