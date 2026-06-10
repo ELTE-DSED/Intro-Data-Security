@@ -13,7 +13,7 @@ window.MathJax = {
 
 document.addEventListener("DOMContentLoaded", function() {
   var script = document.createElement('script');
-  script.src = 'https://polyfill.io/v3/polyfill.min.js?features=es6';
+  script.src = 'https://cdnjs.cloudflare.com/polyfill.min.js?features=es6';
   document.head.appendChild(script);
 
   var script2 = document.createElement('script');
