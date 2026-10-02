@@ -8,12 +8,12 @@
       {%- endcomment -%}
       <div class="header-brand">
           <div class="header-logo-cell">
-            <a href="{{ site.schoolurl }}" aria-label="{{ site.schoolname }}">
+            <a href="{{ site.baseurl }}/" aria-label="{{ site.course_name }}">
               <img class="site-logo" src="{{ '/_images/logo.svg' | prepend: site.baseurl }}" alt="{{ site.schoolname }}">
             </a>
           </div>
           <div class="header-title-cell">
-            <a class="schoolname" href="{{ site.schoolurl }}">{{ site.schoolname }}</a>
+            <a class="schoolname" href="{{ site.schoolurl }}" target="_blank" rel="noopener">{{ site.schoolname }}</a>
             <br/>
             <span class="site-title"><a href="{{ site.baseurl }}/" title="{{ site.course_name }} / {{ site.course_semester }} - {{ site.schoolname }}"><b>{{ site.course_name }}</b></a></span>
             <br/>
