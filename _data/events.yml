@@ -97,10 +97,10 @@
   hide_time: true
   hide_from_announcements: true
 
-- id: project_presentation
+- id: end_term_zh
   type: raw_event
-  name: Project
+  name: Evaluation
   date: 2027-05-10T10:00:00+02:00
-  description: Project presentations
+  description: End-Term Practical Evaluation (ZH 2)
   hide_time: false
-  content: Each project is presented for roughly 10 minutes, followed by questions.
+  content: In-class supervised practical test covering Modules 5 through 8 (Privacy, Synthetic Data, and Defenses).
