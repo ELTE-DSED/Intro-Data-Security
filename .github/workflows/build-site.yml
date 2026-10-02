@@ -86,7 +86,7 @@ jobs:
           expect _site/labs/index.html        13 'id="lab-'               'labs: one anchor per lab'
           expect _site/labs/index.html         8 'id="module-'            'labs: one heading per module'
           expect _site/labs/index.html         1 'Federated Learning'     'labs: last lab rendered'
-          expect _site/schedule/index.html    15 'class="table-row'      'schedule: 13 labs + 2 events'
+          expect _site/schedule/index.html    16 'class="table-row'      'schedule: 13 labs + 3 events'
           expect _site/resources/index.html    1 'Google Colab'           'resources: setup notes rendered'
 
           # The curriculum table on the home page is wrapped in .table-scroll

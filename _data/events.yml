@@ -89,6 +89,14 @@
   lab: lab-8b
   date: 2027-05-11T23:59:00+02:00
 
+- id: midterm_zh
+  type: raw_event
+  name: Evaluation
+  date: 2027-03-23T10:00:00+01:00
+  description: Midterm Practical Evaluation (ZH 1)
+  hide_time: false
+  content: In-class supervised practical test covering Modules 1 through 4 (Foundations, Evasion, and Poisoning).
+
 - id: easter_break
   type: raw_event
   name: Holiday
