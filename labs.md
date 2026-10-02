@@ -30,5 +30,3 @@ All labs run directly in Google Colab with no local setup required. Use the inde
   </tbody>
 </table>
 </div>
-
-## Detailed Modules
