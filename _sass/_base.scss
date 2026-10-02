@@ -355,7 +355,8 @@ pre {
 
 .no-p-margin {
     p {
-        margin-bottom: 0;
+        display: inline;
+        margin: 0;
     }
 }
 
