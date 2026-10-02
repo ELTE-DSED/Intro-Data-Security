@@ -83,14 +83,7 @@ include:
 # GitHub (and are opened via Colab), so there is no need to copy them into
 # the built site.
 exclude:
-  - module_01_foundations
-  - module_02_input_manipulation
-  - module_03_data_poisoning
-  - module_04_model_poisoning
-  - module_05_sponge_attacks
-  - module_06_confidentiality_attacks
-  - module_07_synthetic_data_generation
-  - module_08_defenses
+  - modules
   - .github
   - Gemfile
   - Gemfile.lock

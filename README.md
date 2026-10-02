@@ -19,19 +19,19 @@
 
 | Module | Lab | Topic | Link |
 |--------|-----|-------|------|
-| **1. Foundations** | 1 | DNN Training & Robust Model Baselines | [Notebook](module_01_foundations/Lab1_DNN_Training_and_Robust_Models.ipynb) |
-| **2. Input Manipulation** | 2 | Evasion Attacks (FGSM, PGD) | [Notebook](module_02_input_manipulation/Lab2_Evasion_Attacks.ipynb) |
-| **3. Data Poisoning** | 3a | Label Flipping Attacks | [Notebook](module_03_data_poisoning/Lab_3a_Data_Poisoning_Label_Flipping.ipynb) |
-| | 3b | Backdoor & Trigger Injection | [Notebook](module_03_data_poisoning/Lab_3b_Data_Poisoning_Backdoor_Attacks.ipynb) |
-| **4. Model Poisoning** | 4a | Model Trojans & Supply Chain Attacks | [Notebook](module_04_model_poisoning/Lab_4a_Model_Trojans_and_Supply_Chain_Attacks.ipynb) |
-| | 4b | Trojan Detection & Certified Defenses | [Notebook](module_04_model_poisoning/Lab_4b_Trojan_Detection_and_Certified_Defenses.ipynb) |
-| **5. Availability** | 5a | Sponge Attacks & Resource Exhaustion | [Notebook](module_05_sponge_attacks/Lab_5a_Sponge_Attacks_and_Resource_Exhaustion.ipynb) |
-| | 5b | Sponge Attack Defenses | [Notebook](module_05_sponge_attacks/Lab_5b_Sponge_Attack_Defenses_and_Resource_Constraints.ipynb) |
-| **6. Confidentiality** | 6a | Membership Inference Attacks | [Notebook](module_06_confidentiality_attacks/Lab_6a_Membership_Inference_Attacks.ipynb) |
-| | 6b | Model Inversion & Feature Reconstruction | [Notebook](module_06_confidentiality_attacks/Lab_6b_Model_Inversion_Attacks_and_Defenses.ipynb) |
-| **7. Synthetic Data** | 7 | Tabular Synthetic Data (VAE, GAN) | [Notebook](module_07_synthetic_data_generation/Lab_7_Tabular_Synthetic_Data_Generation.ipynb) |
-| **8. Defenses** | 8a | Differential Privacy & DP-SGD | [Notebook](module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb) |
-| | 8b | Federated Learning & Adversarial Training | [Notebook](module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
+| **1. Foundations** | 1 | DNN Training & Robust Model Baselines | [Notebook](modules/module_01_foundations/Lab1_DNN_Training_and_Robust_Models.ipynb) |
+| **2. Input Manipulation** | 2 | Evasion Attacks (FGSM, PGD) | [Notebook](modules/module_02_input_manipulation/Lab2_Evasion_Attacks.ipynb) |
+| **3. Data Poisoning** | 3a | Label Flipping Attacks | [Notebook](modules/module_03_data_poisoning/Lab_3a_Data_Poisoning_Label_Flipping.ipynb) |
+| | 3b | Backdoor & Trigger Injection | [Notebook](modules/module_03_data_poisoning/Lab_3b_Data_Poisoning_Backdoor_Attacks.ipynb) |
+| **4. Model Poisoning** | 4a | Model Trojans & Supply Chain Attacks | [Notebook](modules/module_04_model_poisoning/Lab_4a_Model_Trojans_and_Supply_Chain_Attacks.ipynb) |
+| | 4b | Trojan Detection & Certified Defenses | [Notebook](modules/module_04_model_poisoning/Lab_4b_Trojan_Detection_and_Certified_Defenses.ipynb) |
+| **5. Availability** | 5a | Sponge Attacks & Resource Exhaustion | [Notebook](modules/module_05_sponge_attacks/Lab_5a_Sponge_Attacks_and_Resource_Exhaustion.ipynb) |
+| | 5b | Sponge Attack Defenses | [Notebook](modules/module_05_sponge_attacks/Lab_5b_Sponge_Attack_Defenses_and_Resource_Constraints.ipynb) |
+| **6. Confidentiality** | 6a | Membership Inference Attacks | [Notebook](modules/module_06_confidentiality_attacks/Lab_6a_Membership_Inference_Attacks.ipynb) |
+| | 6b | Model Inversion & Feature Reconstruction | [Notebook](modules/module_06_confidentiality_attacks/Lab_6b_Model_Inversion_Attacks_and_Defenses.ipynb) |
+| **7. Synthetic Data** | 7 | Tabular Synthetic Data (VAE, GAN) | [Notebook](modules/module_07_synthetic_data_generation/Lab_7_Tabular_Synthetic_Data_Generation.ipynb) |
+| **8. Defenses** | 8a | Differential Privacy & DP-SGD | [Notebook](modules/module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb) |
+| | 8b | Federated Learning & Adversarial Training | [Notebook](modules/module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
 
 ## Course website
 
@@ -63,6 +63,7 @@ students never need a local setup.
 
 | Path | Purpose |
 |------|---------|
+| `modules/` | The 8 thematic lab modules containing Jupyter notebooks and assets. |
 | `_data/labs.yml` | **Every lab**: title, date, summary, notebook path. The main file to edit. |
 | `_images/logo.svg` | The ELTE emblem used in the header, cropped to its 269×269 square. |
 | `_data/modules.yml` | The 8 modules and their descriptions. |
@@ -84,7 +85,7 @@ Append an entry to `_data/labs.yml`:
   module: 8
   title: Robust Distillation Under Attack
   date: 2027-05-11T10:00:00+02:00
-  notebook: module_08_defenses/Lab_9_Robust_Distillation.ipynb
+  notebook: modules/module_08_defenses/Lab_9_Robust_Distillation.ipynb
   summary: One-line description shown on the Labs page.
 ```
 

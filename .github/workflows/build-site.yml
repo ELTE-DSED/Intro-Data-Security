@@ -7,7 +7,7 @@ on:
   push:
     branches: ["**"]
     paths-ignore:
-      - "module_*/**"
+      - "modules/**"
   pull_request:
   workflow_dispatch:
 
