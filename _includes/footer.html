@@ -2,30 +2,64 @@
 
   <div class="wrapper">
 
-    <div class="footer-col-wrapper">
+    <div class="footer-grid">
 
-      <div class="footer-col footer-col-1">
-        {%- comment -%}
-        Optional postal address. Set `address` in _config.yml to show it.
-        {%- endcomment -%}
+      <div class="footer-col-main">
+        <h3 class="footer-course-title">{{ site.course_name }}</h3>
+        <p class="footer-term">{{ site.course_semester }}</p>
         {%- if site.address %}
-        <p class="text">{{ site.address | newline_to_br }}</p>
+        <p class="footer-address">{{ site.address | newline_to_br }}</p>
         {%- endif %}
       </div>
 
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
+      <div class="footer-col-nav">
+        <h4 class="footer-heading">Course</h4>
+        <ul>
+          <li><a href="{{ site.baseurl }}/">Overview</a></li>
+          <li><a href="{{ '/schedule/' | prepend: site.baseurl }}">Schedule</a></li>
+          <li><a href="{{ '/labs/' | prepend: site.baseurl }}">Labs</a></li>
+          <li><a href="{{ '/materials/' | prepend: site.baseurl }}">Materials</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col-connect">
+        <h4 class="footer-heading">Connect</h4>
+        <ul>
+          {%- if site.faculty_url %}
+          <li>
+            <a href="{{ site.faculty_url }}" target="_blank" rel="noopener">
+              <i class="fas fa-university" aria-hidden="true"></i> {{ site.faculty_name | default: "Faculty of Informatics" }}
+            </a>
+          </li>
+          {%- endif %}
           {%- if site.schoolurl %}
           <li>
-            <a href="{{ site.schoolurl }}">
-              <i class="social-icon fas fa-globe" aria-hidden="true"></i>
-              {{ site.schoolurl | remove: "https://" | remove: "http://" | remove: "www." }}
+            <a href="{{ site.schoolurl }}" target="_blank" rel="noopener">
+              <i class="fas fa-globe" aria-hidden="true"></i> {{ site.schoolurl | remove: "https://" | remove: "http://" | remove: "www." }}
+            </a>
+          </li>
+          {%- endif %}
+          {%- if site.repo_url %}
+          <li>
+            <a href="{{ site.repo_url }}" target="_blank" rel="noopener">
+              <i class="fab fa-github" aria-hidden="true"></i> GitHub
+            </a>
+          </li>
+          {%- endif %}
+          {%- if site.faculty_linkedin %}
+          <li>
+            <a href="{{ site.faculty_linkedin }}" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
             </a>
           </li>
           {%- endif %}
         </ul>
       </div>
 
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2027 {{ site.schoolname }} &middot; Department of Data Science and Engineering. Course materials licensed under MIT.</p>
     </div>
 
   </div>

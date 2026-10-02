@@ -21,6 +21,9 @@ course_description: |
 
 schoolname: Eötvös Loránd University
 schoolurl: https://www.elte.hu
+faculty_name: Faculty of Informatics
+faculty_url: https://www.inf.elte.hu/en
+faculty_linkedin: https://www.linkedin.com/company/elte-faculty-of-informatics-en
 # Faculty and department, verified against inf.elte.hu (the department's own
 # English page is /en/units/department-of-data-science-and-engeneering).
 # The footer prints this block.
