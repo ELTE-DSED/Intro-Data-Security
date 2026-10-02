@@ -44,10 +44,9 @@ All lab notebooks, images and helper modules live in one place:
 
 ## Background Reading
 
-- [unica-mlsec/mlsec](https://github.com/unica-mlsec/mlsec) &mdash; Prof. Battista Biggio (University of Cagliari)
-- *Practical Data Privacy* &mdash; Katharine Jarmul (O'Reilly, 2023)
-- *Adversarial Machine Learning* &mdash; Goodfellow, Biggio, Laskov
-  (Cambridge University Press, 2018)
+- [unica-mlsec/mlsec](https://github.com/unica-mlsec/mlsec), Prof. Battista Biggio (University of Cagliari)
+- *Practical Data Privacy*, Katharine Jarmul (O'Reilly, 2023)
+- *Adversarial Machine Learning*, Goodfellow, Biggio, Laskov (Cambridge University Press, 2018)
 
 ## Academic Integrity
 

@@ -14,14 +14,14 @@
 
 The course covers 8 core modules across the machine learning security lifecycle:
 
-1. **Module 1: Foundations** &mdash; Deep neural network training and robust model evaluation.
-2. **Module 2: Input Manipulation** &mdash; Evasion attacks at inference time (FGSM, PGD).
-3. **Module 3: Data Poisoning** &mdash; Training set manipulation (label flipping, backdoors, and trigger injection).
-4. **Module 4: Model Poisoning** &mdash; Supply chain vulnerabilities, model Trojans, and certified detection.
-5. **Module 5: Availability Attacks** &mdash; Sponge examples, latency inflation, and resource exhaustion defenses.
-6. **Module 6: Confidentiality & Privacy** &mdash; Membership Inference Attacks (MIA) and model inversion.
-7. **Module 7: Synthetic Data** &mdash; Privacy-preserving tabular data generation with VAEs and GANs.
-8. **Module 8: Defenses & Robustness** &mdash; Differential Privacy (DP-SGD), Federated Learning, and Adversarial Training.
+1. **Module 1: Foundations**: Deep neural network training and robust model evaluation.
+2. **Module 2: Input Manipulation**: Evasion attacks at inference time (FGSM, PGD).
+3. **Module 3: Data Poisoning**: Training set manipulation (label flipping, backdoors, and trigger injection).
+4. **Module 4: Model Poisoning**: Supply chain vulnerabilities, model Trojans, and certified detection.
+5. **Module 5: Availability Attacks**: Sponge examples, latency inflation, and resource exhaustion defenses.
+6. **Module 6: Confidentiality & Privacy**: Membership Inference Attacks (MIA) and model inversion.
+7. **Module 7: Synthetic Data**: Privacy-preserving tabular data generation with VAEs and GANs.
+8. **Module 8: Defenses & Robustness**: Differential Privacy (DP-SGD), Federated Learning, and Adversarial Training.
 
 For the full lab schedule, detailed descriptions, and interactive Colab notebooks, visit the [Course Labs Page](https://elte-dsed.github.io/Intro-Data-Security/labs/).
 

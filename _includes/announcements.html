@@ -35,7 +35,7 @@ Jekyll 3.x as well.
     {%- for item in sorted limit: 6 %}
     <li class="no-p-margin">
       {%- if item.type == "raw_event" %}
-        {{ item.date | date: site.dateformat }} &mdash; {{ item.description }}
+        {{ item.date | date: site.dateformat }}: {{ item.description }}
       {%- elsif item.type == "due" %}
         {%- assign target_lab = site.data.labs | where: "id", item.lab | first -%}
         {%- assign lab_num = item.lab | remove: "lab-" -%}
@@ -46,7 +46,7 @@ Jekyll 3.x as well.
           Not "New lab posted": every lab is dated ahead of today until its
           session happens, so that wording would be false for all 13 of them.
         {%- endcomment -%}
-        Lab {{ item.id | remove: "lab-" }} &mdash;
+        Lab {{ item.id | remove: "lab-" }}:
         <a href="{{ '/labs/' | prepend: site.baseurl }}#{{ item.id }}">{{ item.title }}</a>
         ({{ item.date | date: site.dateformat }})
       {%- endif %}

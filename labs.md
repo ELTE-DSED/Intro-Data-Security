@@ -3,8 +3,8 @@ layout: labs
 title: Labs
 permalink: /labs/
 ---
-Every lab is a Jupyter notebook that runs in Google Colab &mdash; no local
-installation is required. Press **Open in Colab** to get started; Colab opens the
+Every lab is a Jupyter notebook that runs directly in Google Colab with no local
+installation required. Press **Open in Colab** to get started; Colab opens the
 notebook directly from this repository and saves your progress to your own Drive.
 
 The notebooks reference images and helper modules stored next to them in this
