@@ -1,0 +1,200 @@
+name: build site
+
+# Verifies that the Jekyll site builds. Runs on pull requests and on any
+# branch push, so a Liquid typo is caught before it reaches `main`.
+# Deploying is handled separately by deploy-site.yml.
+on:
+  push:
+    branches: ["**"]
+    paths-ignore:
+      - "module_*/**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build site
+        shell: bash
+        run: |
+          set -o pipefail
+          bundle exec jekyll build --trace 2>&1 | tee build.log
+
+      - name: Fail on Liquid warnings
+        run: |
+          # Jekyll exits 0 even when it prints "Liquid Warning", which is how
+          # the upstream template shipped includes referencing `event` instead
+          # of `include.event`. Treat any of them as a build failure.
+          if grep -iE "liquid (warning|error|exception)" build.log; then
+            echo "::error::Liquid warnings were emitted during the build"
+            exit 1
+          fi
+          echo "No Liquid warnings."
+
+      - name: Check key pages were generated
+        run: |
+          missing=0
+          for page in index.html schedule/index.html labs/index.html materials/index.html _css/main.css; do
+            if [ ! -f "_site/$page" ]; then
+              echo "::error::Missing expected output: _site/$page"
+              missing=1
+            fi
+          done
+          [ "$missing" -eq 0 ] && echo "All expected pages were generated."
+          exit "$missing"
+
+      - name: Check pages actually contain their content
+        shell: bash
+        run: |
+          # Jekyll exits 0 even when a Liquid loop renders nothing, so assert
+          # on the generated markup rather than trusting the exit status.
+          set -uo pipefail
+          failed=0
+
+          # expect <file> <minimum count> <pattern> <description>
+          expect() {
+            local file=$1 want=$2 pattern=$3 desc=$4
+            local got
+            got=$(grep -c -E -- "$pattern" "$file" || true)
+            if [ "$got" -lt "$want" ]; then
+              echo "::error::$desc: expected at least $want match(es) in $file, found $got"
+              failed=1
+            else
+              echo "ok: $desc ($got)"
+            fi
+          }
+
+          expect _site/index.html            13 'colab-badge\.svg'       'home: one Colab badge per lab'
+          expect _site/index.html             1 'announcement-box'       'home: Updates box rendered'
+          expect _site/index.html             8 'Module [0-9]'           'home: curriculum lists 8 modules'
+          expect _site/labs/index.html        13 'id="lab-'               'labs: one anchor per lab'
+          expect _site/labs/index.html         8 'id="module-'            'labs: one heading per module'
+          expect _site/labs/index.html         1 'Federated Learning'     'labs: last lab rendered'
+          expect _site/schedule/index.html    28 'class="table-row'      'schedule: 13 labs + 13 dues + 2 events'
+          expect _site/materials/index.html    1 'Google Colab'           'materials: setup notes rendered'
+
+          # The curriculum table is four columns wide and does not fit a phone.
+          # It relies on a .table-scroll wrapper (see index.md) plus
+          # overflow-x on that class. Without both, the table pushes the whole
+          # page sideways and every page gets a horizontal scrollbar on mobile.
+          # A real browser check would be the ideal guard, but a structural one
+          # is enough here and needs no browser in CI.
+          if grep -q 'class="table-scroll"' _site/index.html \
+             && grep -q 'table class="curriculum"' _site/index.html \
+             && grep -A 2 '\.table-scroll' _site/_css/main.css | grep -q 'overflow-x: auto'; then
+            echo "ok: curriculum table is wrapped in a horizontally scrollable box"
+          else
+            echo "::error::the curriculum table is not wrapped in .table-scroll with overflow-x: auto; it will overflow narrow screens"
+            failed=1
+          fi
+
+          # Every Colab link must point at a notebook that exists in the repo.
+          while read -r url; do
+            path="${url#*Intro-Data-Security/blob/main/}"
+            if [ ! -f "$path" ]; then
+              echo "::error::Colab link points at a missing notebook: $path"
+              failed=1
+            fi
+          done < <(grep -oh -E 'colab\.research\.google\.com/github/[^"]*' _site/index.html _site/labs/index.html | sort -u)
+
+          # Liquid renders include files verbatim, so a stray YAML front-matter
+          # block inside an include ends up as visible text on the page instead
+          # of being parsed as metadata. It builds cleanly and exits 0, so it
+          # has to be asserted against explicitly.
+          if grep -qE '^(---|layout:|title:)' _site/index.html; then
+            echo "::error::front matter leaked into _site/index.html (check for a '---' block in an _includes file)"
+            failed=1
+          else
+            echo "ok: no front-matter leakage on the home page"
+          fi
+
+          # A DST mistake is easy to reintroduce: a summer deadline written with
+          # a winter +01:00 offset renders an hour late and rolls 23:59 onto
+          # the next day. Fail if any deadline time is not the intended 23:59.
+          rollover=$(grep -c -E '[01]:59' _site/schedule/index.html || true)
+          if [ "$rollover" -ne 0 ]; then
+            echo "::error::found $rollover rendered time(s) at 00:59/01:59: a deadline has crossed midnight (wrong UTC offset for its date?)"
+            failed=1
+          else
+            echo "ok: no deadline crossed midnight"
+          fi
+
+          # The placeholder banner is driven by a flag, so assert both
+          # directions: it must appear exactly when the flag is set. Asserting
+          # it unconditionally would have failed CI the moment the real
+          # Spring 2027 timetable landed.
+          if grep -qE '^dates_are_placeholders:[[:space:]]*true' _config.yml; then
+            if grep -q 'Dates are placeholders' _site/schedule/index.html; then
+              echo "ok: schedule: placeholder notice shown (flag is true)"
+            else
+              echo "::error::dates_are_placeholders is true but the notice is missing from the schedule"
+              failed=1
+            fi
+          else
+            if grep -q 'Dates are placeholders' _site/schedule/index.html; then
+              echo "::error::placeholder notice shown even though dates_are_placeholders is false"
+              failed=1
+            else
+              echo "ok: no placeholder notice (dates_are_placeholders: false)"
+            fi
+          fi
+
+          # A deadline in _data/events.yml repeats its lab's title, because the
+          # Schedule shows them in separate rows. Nothing stops the two from
+          # drifting apart, and the Schedule would then contradict the Labs
+          # page. Assert they agree, and that every lab has exactly one.
+          ruby -ryaml -rdate -e '
+            labs   = YAML.load_file("_data/labs.yml",   permitted_classes: [Date, Time])
+            events = YAML.load_file("_data/events.yml", permitted_classes: [Date, Time])
+            by_id  = labs.to_h { |l| [l["id"], l] }
+            dues   = events.select { |e| e["type"] == "due" }
+            bad    = 0
+
+            dues.each do |e|
+              lab = by_id[e["lab"]]
+              if lab.nil?
+                puts "::error::deadline #{e["id"]} points at unknown lab #{e["lab"].inspect}"
+                bad = 1
+                next
+              end
+              number = e["lab"].sub("lab-", "")
+              want   = "Lab #{number}: #{lab["title"]}"
+              if e["description"] != want
+                puts "::error::deadline #{e["id"]} description drifted from _data/labs.yml"
+                puts "  events.yml: #{e["description"].inspect}"
+                puts "  expected   : #{want.inspect}"
+                bad = 1
+              end
+            end
+
+            if dues.length != labs.length
+              puts "::error::#{labs.length} labs but #{dues.length} deadlines; each lab needs exactly one"
+              bad = 1
+            end
+            puts(bad.zero? ? "ok: all #{dues.length} deadlines match their lab titles" : "")
+            exit bad
+          ' || failed=1
+
+          exit "$failed"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+          retention-days: 7

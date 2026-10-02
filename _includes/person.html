@@ -1,0 +1,44 @@
+{%- comment -%}
+Renders one staff card. Falls back to initials when no profile_pic is set,
+so the site looks complete without requiring photos.
+Usage: {% include person.html person=person %}
+{%- endcomment -%}
+{%- assign person = include.person -%}
+{%- assign name_words = person.name | split: " " -%}
+{%- capture initials -%}
+  {%- for word in name_words -%}
+    {%- assign trimmed = word | remove: "Prof." | strip -%}
+    {%- unless trimmed == "" -%}{{ trimmed | slice: 0, 1 }}{%- endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+<div class="image--cover-container person-card">
+  {%- if person.profile_pic %}
+  <img src="{{ person.profile_pic | prepend: site.baseurl }}" class="image--cover" alt="{{ person.name }}">
+  {%- else %}
+  <div class="image--cover person-initials" aria-hidden="true">{{ initials }}</div>
+  {%- endif %}
+
+  {%- if person.webpage %}
+  <p><a href="{{ person.webpage }}">{{ person.name }}</a></p>
+  {%- else %}
+  <p>{{ person.name }}</p>
+  {%- endif %}
+
+  {%- if person.role %}
+  <p class="person-role">{{ person.role }}</p>
+  {%- endif %}
+
+  {%- comment -%}
+    Optional extra links, e.g. GitHub. Rendered under the role so the name can
+    stay the single primary link.
+    Usage: links: [{label: GitHub, url: "https://github.com/..."}]
+  {%- endcomment -%}
+  {%- if person.links and person.links.size > 0 %}
+  <p class="person-links">
+    {%- for link in person.links -%}
+      <a href="{{ link.url }}">{{ link.label }}</a>{% unless forloop.last %}<span class="sep">&middot;</span>{% endunless %}
+    {%- endfor -%}
+  </p>
+  {%- endif %}
+</div>

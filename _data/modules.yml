@@ -1,0 +1,53 @@
+# ==========================================================
+#  The 8 modules of the course.
+#  `number` must match the `module` field of the labs in _data/labs.yml
+# ==========================================================
+
+- number: 1
+  title: Foundations
+  overview: >-
+    This module covers the foundational aspects of deep neural network (DNN)
+    training and establishes the robust model baselines that the rest of the
+    course measures against.
+
+- number: 2
+  title: Input Manipulation
+  overview: >-
+    Focuses on evasion attacks, which target the input data to deceive machine
+    learning models at inference time.
+
+- number: 3
+  title: Data Poisoning
+  overview: >-
+    Examines how training data can be manipulated to compromise the integrity of
+    the resulting model.
+
+- number: 4
+  title: Model Poisoning
+  overview: >-
+    Investigates attacks that target the model directly, often by way of supply
+    chain vulnerabilities in published pre-trained weights.
+
+- number: 5
+  title: Availability
+  overview: >-
+    Covers attacks designed to exhaust system resources and reduce the
+    availability of a model.
+
+- number: 6
+  title: Confidentiality
+  overview: >-
+    Explores attacks that aim to leak sensitive information from the model or
+    from the data it was trained on.
+
+- number: 7
+  title: Synthetic Data
+  overview: >-
+    Methods for generating privacy-preserving synthetic data that can stand in
+    for sensitive real-world records.
+
+- number: 8
+  title: Defenses
+  overview: >-
+    Comprehensive strategies for defending machine learning models, from formal
+    privacy guarantees to robust training.

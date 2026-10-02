@@ -1,0 +1,119 @@
+# ==========================================================
+#  Dated course events, in one place.
+#
+#  These used to be fifteen files in a Jekyll collection (`_events/*.md`),
+#  but they are pure data: nothing renders an event as a page, and only
+#  `description`, `date` and the optional `content` are ever read. Fifteen
+#  files of three lines each was structure for its own sake.
+#
+#  type: due        a graded deadline. "Due" rows on the Schedule.
+#                  `lab` names the entry in _data/labs.yml it belongs to;
+#                  build-site.yml asserts the two agree, so a lab retitled
+#                  here without also being retitled there fails CI.
+#  type: raw_event  anything else (holidays, presentations).
+#
+#  Fields
+#    id          stable identifier, not currently rendered
+#    type        due | raw_event
+#    date        when it happens, with an explicit UTC offset (see the note
+#                on offsets in _data/labs.yml)
+#    description what the Schedule and the Updates box show
+#    name        row label for raw_event (defaults to nothing)
+#    hide_time   raw_event only: omit the clock time from the Schedule
+#    hide_from_announcements  keep it off the home-page Updates box
+#    content     raw_event only: the Course Material column
+# ==========================================================
+
+- id: due_lab_1
+  type: due
+  lab: lab-1
+  date: 2027-02-16T23:59:00+01:00
+  description: "Lab 1: DNN Training & Robust Model Baselines"
+
+- id: due_lab_2
+  type: due
+  lab: lab-2
+  date: 2027-02-23T23:59:00+01:00
+  description: "Lab 2: Evasion Attacks (FGSM, PGD)"
+
+- id: due_lab_3a
+  type: due
+  lab: lab-3a
+  date: 2027-03-02T23:59:00+01:00
+  description: "Lab 3a: Label Flipping Attacks"
+
+- id: due_lab_3b
+  type: due
+  lab: lab-3b
+  date: 2027-03-09T23:59:00+01:00
+  description: "Lab 3b: Backdoor & Trigger Injection"
+
+- id: due_lab_4a
+  type: due
+  lab: lab-4a
+  date: 2027-03-16T23:59:00+01:00
+  description: "Lab 4a: Model Trojans & Supply Chain Attacks"
+
+- id: due_lab_4b
+  type: due
+  lab: lab-4b
+  date: 2027-03-23T23:59:00+01:00
+  description: "Lab 4b: Trojan Detection & Certified Defenses"
+
+- id: due_lab_5a
+  type: due
+  lab: lab-5a
+  date: 2027-03-30T23:59:00+02:00
+  description: "Lab 5a: Sponge Attacks & Resource Exhaustion"
+
+- id: due_lab_5b
+  type: due
+  lab: lab-5b
+  date: 2027-04-06T23:59:00+02:00
+  description: "Lab 5b: Sponge Attack Defenses"
+
+- id: due_lab_6a
+  type: due
+  lab: lab-6a
+  date: 2027-04-13T23:59:00+02:00
+  description: "Lab 6a: Membership Inference Attacks"
+
+- id: due_lab_6b
+  type: due
+  lab: lab-6b
+  date: 2027-04-20T23:59:00+02:00
+  description: "Lab 6b: Model Inversion & Feature Reconstruction"
+
+- id: due_lab_7
+  type: due
+  lab: lab-7
+  date: 2027-04-27T23:59:00+02:00
+  description: "Lab 7: Tabular Synthetic Data (VAE, GAN)"
+
+- id: due_lab_8a
+  type: due
+  lab: lab-8a
+  date: 2027-05-04T23:59:00+02:00
+  description: "Lab 8a: Differential Privacy & DP-SGD"
+
+- id: due_lab_8b
+  type: due
+  lab: lab-8b
+  date: 2027-05-11T23:59:00+02:00
+  description: "Lab 8b: Federated Learning & Adversarial Training"
+
+- id: easter_break
+  type: raw_event
+  name: Holiday
+  date: 2027-03-26T10:00:00+01:00
+  description: No lab session (Easter break)
+  hide_time: true
+  hide_from_announcements: true
+
+- id: project_presentation
+  type: raw_event
+  name: Project
+  date: 2027-05-10T10:00:00+02:00
+  description: Project presentations
+  hide_time: false
+  content: Each project is presented for roughly 10 minutes, followed by questions.

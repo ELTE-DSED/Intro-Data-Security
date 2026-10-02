@@ -1,0 +1,246 @@
+// ==========================================================
+//  Course-specific styles (IDaSec)
+//  Everything here is additive to the upstream template.
+// ==========================================================
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// ---------- Notebook links ----------
+
+a.colab-badge {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+  margin-right: 12px;
+
+  img {
+    height: 20px;
+    width: auto;
+  }
+}
+
+a.lab-link {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ---------- Labs page ----------
+
+.lab-module {
+  margin-bottom: 40px;
+
+  h2 {
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+}
+
+.lab-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lab-item {
+  border: 1px solid $grey-color-light;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  background: #fff;
+
+  // Anchored headings should not hide under the sticky header.
+  &:target {
+    border-color: $accent-color;
+    box-shadow: 0 0 0 3px rgba(92, 219, 149, 0.25);
+  }
+}
+
+.lab-item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+
+  h3 {
+    margin: 0;
+    font-size: 1.05em;
+  }
+}
+
+.lab-date {
+  font-size: 0.8em;
+  color: $grey-color;
+  white-space: nowrap;
+}
+
+.lab-summary {
+  margin: 8px 0 10px;
+  color: $text-color;
+}
+
+.lab-buttons {
+  line-height: 1;
+}
+
+// ---------- Curriculum table (home page) ----------
+
+// The curriculum has four columns and is wider than a phone screen. Wrapped in
+// .table-scroll (see index.md) so it scrolls sideways inside its own box,
+// instead of pushing the whole page sideways and giving every page a
+// horizontal scrollbar.
+.table-scroll {
+  overflow-x: auto;
+}
+
+table.curriculum {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+
+  th, td {
+    border: 1px solid $grey-color-light;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    background: darken($primary-color, 3%);
+    color: #fff;
+  }
+
+  td:first-child {
+    background: lighten($primary-color, 55%);
+  }
+}
+
+// ---------- People ----------
+
+.people-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.people-col {
+  flex: 1 1 260px;
+}
+
+.person-card {
+  text-align: center;
+  margin-bottom: 18px;
+
+  p {
+    margin: 6px 0 0;
+    font-size: 0.9em;
+  }
+}
+
+.person-role {
+  color: $grey-color;
+  font-size: 0.85em;
+}
+
+// Secondary links under a staff member's role (e.g. GitHub).
+.person-links {
+  font-size: 0.8em;
+
+  .sep {
+    color: $grey-color;
+    padding: 0 2px;
+  }
+}
+
+// Circle with the person's initials, used when no photo is available.
+// Kept at 80px to match .image--cover so the fallback and a real photo
+// occupy identical space.
+.image--cover.person-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: $header-color;
+  color: $header-text-color;
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 auto 10px;
+}
+
+// ---------- Schedule ----------
+
+// Deadline rows. The row background is set by .table-row-due in _base.scss;
+// the text emphasis used to be inline style="..." attributes in the row
+// templates, which meant styling lived in the HTML rather than here.
+.table-row-due {
+  color: $due-color;
+
+  .col-1,
+  .col-1-2,
+  .col-2 {
+    font-weight: bold;
+  }
+}
+
+// The schedule grid is denser than the rest of the site.
+.schedule-table {
+  font-size: 0.8em;
+}
+
+.schedule-rows {
+  margin-left: 0;
+}
+
+// ---------- Footer ----------
+
+.social-icon {
+  color: $grey-color;
+}
+
+// ---------- Home ----------
+
+// The "/ Spring 2027" suffix next to the course title.
+.course-term {
+  font-size: 20px;
+  color: #0006;
+}
+
+// ---------- Notices ----------
+
+.notice {
+  border-left: 5px solid $accent-color;
+  background: #fff8e6;
+  padding: 12px 16px;
+  margin: 18px 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92em;
+
+  code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+}
+
+.announcement-body {
+  color: $text-color;
+}

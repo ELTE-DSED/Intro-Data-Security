@@ -1,0 +1,99 @@
+# ==========================================================
+#  Site settings  (edit these)
+# ==========================================================
+
+# Pin the timezone so lab/deadline times render identically on your machine,
+# in CI, and on GitHub Pages. Without this, Jekyll falls back to the build
+# machine's TZ and the same source can render differently.
+# Budapest is +01:00 (CET) in winter and +02:00 (CEST) from the last Sunday of
+# March, so every date in _data/labs.yml and _data/events.yml carries an
+# explicit offset matching its own DST state. One hardcoded offset would push
+# summer 23:59 deadlines onto the following day.
+timezone: Europe/Budapest
+
+course_name: Introduction to Data Security Practicum
+course_semester: Spring 2027
+
+course_description: >-
+  A comprehensive, hands-on introduction to the security and privacy of machine
+  learning systems. You will learn to <em>attack</em>, <em>defend</em>, and
+  <em>audit</em> AI models through 13 practical labs organised into 8 thematic
+  modules.
+
+schoolname: Eötvös Loránd University
+schoolurl: https://www.elte.hu
+# Faculty and department, verified against inf.elte.hu (the department's own
+# English page is /en/units/department-of-data-science-and-engeneering).
+# The footer prints this block.
+address: |
+    Department of Data Science and Engineering
+    Faculty of Informatics, Eötvös Loránd University
+    1117 Budapest, Pázmány Péter sétány 1/C, Hungary
+
+repo_url: https://github.com/ELTE-DSED/Intro-Data-Security
+
+# Used to build the "Open in Colab" links. Keep in sync with the repository.
+github_user: ELTE-DSED
+github_repo: Intro-Data-Security
+
+# Set your Google Analytics tracking ID to enable analytics
+# google_analytics: G-XXXXXXXXXX
+
+url: "https://elte-dsed.github.io"
+baseurl: "/Intro-Data-Security"
+
+# ==========================================================
+#  Build settings  (no need to change unless you know why)
+# ==========================================================
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# GitHub Pages serves this site from the `gh-pages` branch.
+# Keep permalinks pretty:
+permalink: /:year/:month/:day/:title/
+
+# Emit posts/events dated in the future. The whole teaching term is ahead of
+# the build date, so with Jekyll's default (false) the Schedule and the Updates
+# box would come out empty.
+future: true
+
+# Shows a warning banner on the Schedule page while the timetable is still
+# provisional. Currently false: the Spring 2027 dates are confirmed (Tuesdays
+# from 2027-02-09). Flip it back to true if you ever revise the dates by guess.
+dates_are_placeholders: false
+
+dateformat: "%m/%d/%Y"
+
+# Announcements are the only collection left. Lab sessions, deadlines and other
+# dated events are plain data in _data/, because nothing renders them as pages.
+collections:
+  announcements:
+    output: false
+
+# _css and _images start with an underscore, so Jekyll ignores them by
+# default and must be told to publish them.
+include:
+  - _css
+  - _images
+
+# Keep the published site small: the lab notebooks and their assets stay on
+# GitHub (and are opened via Colab), so there is no need to copy them into
+# the built site.
+exclude:
+  - module_01_foundations
+  - module_02_input_manipulation
+  - module_03_data_poisoning
+  - module_04_model_poisoning
+  - module_05_sponge_attacks
+  - module_06_confidentiality_attacks
+  - module_07_synthetic_data_generation
+  - module_08_defenses
+  - .github
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - vendor

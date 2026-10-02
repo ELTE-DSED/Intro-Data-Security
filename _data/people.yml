@@ -1,0 +1,22 @@
+# Course staff.
+#
+# Photos live in _images/pp/. A square-ish source image works best: the site
+# crops to a circle with object-fit: cover.
+#
+# If a `profile_pic` is omitted the site falls back to the person's initials
+# on a navy disc, so the page still looks complete without a photo.
+
+instructors:
+  - name: Imre Lendák
+    role: Associate Professor
+    webpage: https://www.inf.elte.hu/en/staff/imre-lendak
+    profile_pic: /_images/pp/imre.png
+
+teaching_assistants:
+  - name: Ahmed Fouad Lagha
+    role: PhD Candidate
+    webpage: https://ahmed-fouad-lagha.github.io
+    links:
+      - label: GitHub
+        url: https://github.com/ahmed-fouad-lagha
+    profile_pic: /_images/pp/ahmed.jpg

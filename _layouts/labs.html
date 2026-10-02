@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{%- comment -%}
+Renders every module from _data/modules.yml followed by its labs from
+_data/labs.yml, so adding a lab to labs.yml is enough to publish it here.
+{%- endcomment -%}
+
+<header class="post-header">
+    <h1 class="post-title">Labs</h1>
+</header>
+
+{{ content }}
+
+{% for module in site.data.modules %}
+<section class="lab-module">
+    <h2 id="module-{{ module.number }}">Module {{ module.number }}: {{ module.title }}</h2>
+
+    <div class="markdown-content">
+        <p>{{ module.overview }}</p>
+    </div>
+
+    <ul class="lab-list">
+    {% for lab in site.data.labs %}
+        {% if lab.module == module.number %}
+        <li id="{{ lab.id }}" class="lab-item">
+            <div class="lab-item-head">
+                <h3>{{ lab.title }}</h3>
+                <span class="lab-date">{{ lab.date | date: site.dateformat }}</span>
+            </div>
+            <p class="lab-summary">{{ lab.summary }}</p>
+            <div class="lab-buttons">
+                {% include lab_links.html lab=lab %}
+            </div>
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</section>
+{% endfor %}

@@ -1,0 +1,26 @@
+// ==========================================================
+//  Site palette.
+//
+//  Upstream shipped eleven commented-out theme palettes here, which made
+//  this file a theme gallery rather than a set of variables. Only the
+//  active theme is kept; the alternates are in the upstream template
+//  (kazemnejad/jekyll-course-website-template) if they are ever wanted.
+//
+//  Used by: _header.scss, _course.scss, _base.scss, _css/main.scss
+// ==========================================================
+
+// Navy: header background, links, primary accents.
+$primary-color:  #05386b;
+$header-color:   #05386b;
+
+// Mint: the accent colour (notices, highlights).
+$accent-color:   #5cdb95;
+
+// Teal: course/section titles.
+$title-color:    #379683;
+
+$header-text-color:          #fff;
+$header-background-opacity:  0.5;
+
+// Gold: deadline rows on the Schedule page.
+$due-color:       #8a6d3b;

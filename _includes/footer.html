@@ -1,0 +1,33 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+
+      <div class="footer-col footer-col-1">
+        {%- comment -%}
+        Optional postal address. Set `address` in _config.yml to show it.
+        {%- endcomment -%}
+        {%- if site.address %}
+        <p class="text">{{ site.address | newline_to_br }}</p>
+        {%- endif %}
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          {%- if site.schoolurl %}
+          <li>
+            <a href="{{ site.schoolurl }}">
+              <i class="social-icon fas fa-globe" aria-hidden="true"></i>
+              {{ site.schoolurl | remove: "https://" | remove: "http://" | remove: "www." }}
+            </a>
+          </li>
+          {%- endif %}
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>

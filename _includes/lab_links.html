@@ -1,0 +1,17 @@
+{%- comment -%}
+Renders the "Open in Colab" and "View on GitHub" buttons for a lab.
+
+NOTE: this file must NOT start with YAML front matter. Jekyll renders a
+partial's front matter as literal text when the include is called from a
+page (as opposed to a layout), which leaks "--- layout: default ---"
+into the markup.
+
+Usage:  {% include lab_links.html lab=lab %}
+{%- endcomment -%}
+{%- assign nb = include.lab.notebook -%}
+<a class="colab-badge" href="https://colab.research.google.com/github/{{ site.github_user }}/{{ site.github_repo }}/blob/main/{{ nb }}" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+<a class="lab-link" href="https://github.com/{{ site.github_user }}/{{ site.github_repo }}/blob/main/{{ nb }}" target="_blank" rel="noopener">
+  <i class="fab fa-github"></i> View notebook on GitHub
+</a>

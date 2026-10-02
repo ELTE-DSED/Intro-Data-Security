@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{%- comment -%}
+Builds one chronological table from two sources:
+  * _data/labs.yml  -> lab sessions
+  * _data/events.yml -> deadlines ("due") and any custom events ("raw_event")
+
+`item.type` selects the row variant inside _includes/schedule_row.html.
+Labs omit `type` in _data/labs.yml, so they render the lab variant.
+{%- endcomment -%}
+
+<header class="post-header">
+    <h1 class="post-title">Schedule</h1>
+</header>
+
+{{ content }}
+
+{% if site.dates_are_placeholders %}
+<div class="notice notice-warning">
+    <strong>Dates are placeholders.</strong>
+    The dates below are examples for {{ site.course_semester }}. Update them in
+    <code>_data/labs.yml</code> and <code>_data/events.yml</code>, then set
+    <code>dates_are_placeholders: false</code> in <code>_config.yml</code>.
+</div>
+{% endif %}
+
+{%- assign events_sorted = site.data.events | concat: site.data.labs | sort: "date" -%}
+
+<div class="home schedule-table">
+    <ul class="responsive-table schedule-rows">
+        <li class="table-header">
+            <div class="col col-1">Event</div>
+            <div class="col col-1-2">Date</div>
+            <div class="col col-2">Description</div>
+            <div class="col col-4">Course Material</div>
+        </li>
+
+        {%- for item in events_sorted -%}
+        {%- comment -%}
+        Each row must be an <li class="table-row...">: the .responsive-table
+        rules in _sass/_base.scss lay out rows with `li { display:flex }` and
+        colour them via .table-row-due / .table-row-exam.
+        {%- endcomment -%}
+        <li class="table-row table-row-{{ item.type | default: 'lab' }}">
+            {%- include schedule_row.html item=item %}
+        </li>
+        {%- endfor -%}
+    </ul>
+</div>

@@ -1,0 +1,57 @@
+name: deploy site
+
+on:
+  push:
+    branches: [main]
+  # Allows a rebuild from the Actions tab without pushing a commit.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Only one deploy at a time; a newer push cancels an in-flight one.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Configure Git
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Build site
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+
+      - name: Publish to gh-pages
+        run: |
+          # The site is a plain static bundle, so the branch is replaced
+          # wholesale rather than merged. This keeps deploys reproducible.
+          cd _site
+          git init -q
+          git checkout -q -b gh-pages
+          git add -A --force
+          git commit -q -m "Deploy ${GITHUB_SHA}"
+          git push -q --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            gh-pages
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+          retention-days: 7

@@ -1,0 +1,261 @@
+/**
+ * Site header
+ */
+.site-header {
+    border-top: 0px solid $grey-color-dark;
+	border-bottom: 6px solid $clemson-orange;
+    min-height: 56px;
+    background-color: $clemson-purple;
+    // Positioning context for the mobile navigation icon
+    position: relative;
+}
+
+.header-texture {
+    opacity: $header-background-opacity;
+    filter: invert($header-background-invert);
+    // Layout used to be inline on the element in _includes/header.html.
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+}
+
+// Sits above .header-texture.
+.header-inner {
+    z-index: 100;
+}
+
+// Logo and course title, side by side. Replaced a layout <table>; see the
+// comment in _includes/header.html.
+.header-brand {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo-cell {
+    flex: 0 0 auto;
+}
+
+.header-title-cell {
+    padding-left: 14px;
+}
+
+// At $on-palm the hamburger (.site-nav) is pulled out of the flow and pinned
+// to the top-right corner of the header, so it sits on top of the course title
+// unless the title reserves room for it. The reserve is the nav's own offset
+// (right: 30px) plus its width, plus a little breathing space.
+@include media-query($on-palm) {
+    .header-title-cell {
+        padding-right: 80px;
+    }
+}
+
+.site-title, .site-title a {
+    font-size: 26px;
+/* 		margin-top: 15px;
+    line-height: 40px; */
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left;
+    font-weight: 500;
+		font-family: 'Titillium Web', sans-serif;
+    color: $header-text-color;
+    &,
+    &:visited {
+        color: $header-text-color;
+    }
+    &,
+    &:hover {
+	text-decoration: none;
+}
+}
+
+.site-header .wrapper {
+	padding-top: 20px;
+	position: relative;
+}
+
+.site-nav ul li a {
+	color: $header-text-color;
+}
+
+.site-nav ul {
+
+	text-align: right;
+	float: right;
+	padding-top: 9px;
+	font-size: 85%;
+	letter-spacing: 1px;
+	line-height: 1em;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-transform: uppercase;
+		font-family: 'Titillium Web', sans-serif;
+
+}
+
+.site-nav .menu > li {
+	border-bottom: 3px solid transparent;
+	display: inline-block;
+	height: 23px;
+	line-height: normal;
+	margin: 12px 0 0 20px;
+	padding: 0 0 2px 0;
+	position: relative;
+	vertical-align: top;
+}
+
+.site-nav a {
+	display: block;
+        color: $header-text-color;
+}
+
+/* Sub Menu */
+
+.site-nav .sub-menu a {
+	display: block;
+	font-weight: normal;
+	height: auto;
+	letter-spacing: 0;
+	line-height: 1.2em;
+	padding: 4px 10px;
+color: $title-color;
+
+}
+
+.site-nav .sub-menu a:hover {
+	color: $clemson-purple;
+}
+.site-nav  .sub-menu {
+	background: #ffffff;
+	border-color: $clemson-purple;
+	min-width: 265px;
+
+	z-index:2147483647;
+}
+.site-nav .sub-menu li.current-menu-item > a {
+	border-left-color: $clemson-purple;
+	border-right-color: $clemson-purple;
+	border-right: 0px;
+
+}
+
+.site-nav li:hover > .sub-menu {
+	display: block;
+}
+
+
+
+.site-nav h1 {
+	position: absolute;
+	left: -999em;
+}
+
+
+.site-nav {
+    float: right;
+    line-height: 40px;
+
+
+    .menu-icon {
+        display: none;
+    }
+
+    .page-link {
+        color: $header-text-color;
+    background: $clemson-purple;
+        line-height: $base-line-height;
+
+        // Gaps between nav items, but not on the first one
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+    }
+
+
+
+    @include media-query($on-palm) {
+        position: absolute;
+        top: 9px;
+        right: 30px;
+        background-color: $background-color;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        text-align: right;
+
+        .menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: $grey-color-dark;
+                }
+            }
+        }
+
+        .trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .page-link {
+            display: block;
+            padding: 5px 10px;
+        }
+    }
+}
+
+// University name, shown above the course title.
+.schoolname {
+    display: inline-block;
+    color: $header-text-color;
+    opacity: 0.85;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        color: $header-text-color;
+        opacity: 1;
+    }
+}
+
+.coursesemester {
+    color: $header-text-color;
+    opacity: 0.9;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+// The supplied logo was a 2311x269 white wordmark whose smallest glyphs are only
+// 28 units tall (10% of the canvas), so at any header-sane height that text
+// renders as ~4px mush. _images/logo.svg is therefore cropped to just the
+// 269x269 square emblem, which stays legible as an icon.
+.site-logo {
+    display: block;
+    height: 58px;
+    width: auto;
+}
+
+
