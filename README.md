@@ -10,8 +10,6 @@
 
 **Course website:** <https://elte-dsed.github.io/Intro-Data-Security/>
 
----
-
 ## Instructors & Staff
 
 - **Instructor**: Imre Lendák, Associate Professor ([staff page](https://www.inf.elte.hu/en/staff/imre-lendak))
@@ -34,8 +32,6 @@
 | **7. Synthetic Data** | 7 | Tabular Synthetic Data (VAE, GAN) | [Notebook](module_07_synthetic_data_generation/Lab_7_Tabular_Synthetic_Data_Generation.ipynb) |
 | **8. Defenses** | 8a | Differential Privacy & DP-SGD | [Notebook](module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb) |
 | | 8b | Federated Learning & Adversarial Training | [Notebook](module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb) |
-
----
 
 ## Course website
 
@@ -129,12 +125,6 @@ teaching time — correct it in `_data/labs.yml` if ELTE schedules them otherwis
 
 GitHub Pages already serves the `gh-pages` branch, so no change to repository
 settings is needed.
-
----
-
-## License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 © 2027 ELTE Faculty of Informatics, Department of Data Science and Engineering
