@@ -1,5 +1,4 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Term-Spring%202027-blue" alt="Term"/>
   <img src="https://img.shields.io/badge/Level-Master's-orange" alt="Level"/>
   <img src="https://img.shields.io/badge/Framework-PyTorch-red" alt="Framework"/>
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License"/>
@@ -7,7 +6,7 @@
 
 # Introduction to Data Security Practicum
 
-> This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through 13 practical labs organized into 8 thematic modules.
+> This course provides a comprehensive, hands-on introduction to the security and privacy of machine learning systems. Students will learn to **attack**, **defend**, and **audit** AI models through practical labs organized into 8 thematic modules.
 
 **Course website:** <https://elte-dsed.github.io/Intro-Data-Security/>
 
@@ -48,7 +47,10 @@ adapted for a lab-based course.
 
 ### Running it locally
 
-You need Ruby and Bundler. From the repository root:
+You need Ruby and Bundler. The `Gemfile` pins `ruby "~> 3.3"`, matching the
+`ruby-version` that CI uses, so an older Ruby fails immediately instead of
+building the site with different gems than `Gemfile.lock` was resolved
+against. From the repository root:
 
 ```bash
 bundle install
@@ -130,17 +132,9 @@ settings is needed.
 
 ---
 
-## References & Acknowledgments
-
-- [unica-mlsec/mlsec](https://github.com/unica-mlsec/mlsec) — Prof. Battista Biggio (University of Cagliari)
-- *Practical Data Privacy* — Katharine Jarmul (O'Reilly, 2023)
-- *Adversarial Machine Learning* — Goodfellow, Biggio, Laskov (Cambridge University Press, 2018)
-- [jekyll-course-website-template](https://github.com/kazemnejad/jekyll-course-website-template) — Kazemnejad (MIT License)
-
 ## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 © 2027 ELTE Faculty of Informatics, Department of Data Science and Engineering
-— 1117 Budapest, Pázmány Péter sétány 1/C, Hungary
