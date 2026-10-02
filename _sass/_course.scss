@@ -250,3 +250,31 @@ table.curriculum {
 .announcement-body {
   color: $text-color;
 }
+
+// ---------- Tables (Standard Markdown Tables) ----------
+
+table:not(.curriculum):not(.schedule-table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 0.9em;
+  border: 1px solid $grey-color-light;
+
+  th, td {
+    border: 1px solid $grey-color-light;
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.45;
+  }
+
+  th {
+    background: #f8fafc;
+    color: $primary-color;
+    font-weight: 600;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #fbfcfd;
+  }
+}
