@@ -10,18 +10,20 @@
 > A comprehensive, hands-on master's course on the security and privacy of machine learning systems. Students learn to **attack**, **defend**, and **audit** AI models through practical Jupyter labs.
 
 
-The practicum is structured into 8 thematic modules covering attacks, defenses, and auditing:
+## Course Topics
 
-1. **Foundations**: Deep neural network training and robust baseline evaluation.
-2. **Input Manipulation**: Evasion attacks at inference time (FGSM, PGD).
-3. **Data Poisoning**: Training set manipulation (Label Flipping, Backdoors, and Trigger Injection).
-4. **Model Poisoning**: Supply chain vulnerabilities, model Trojans, and certified detection.
-5. **Availability Attacks**: Sponge examples, latency inflation, and resource exhaustion defenses.
-6. **Confidentiality & Privacy**: Membership Inference Attacks (MIA) and Model Inversion.
-7. **Synthetic Data**: Privacy-preserving tabular data generation with VAEs and GANs.
-8. **Defenses & Governance**: Differential Privacy (DP-SGD), Federated Learning, and Adversarial Training.
+The course covers 8 core modules across the machine learning security lifecycle:
 
-For the full lab schedule, detailed descriptions, and interactive Colab, visit the [Course Labs Page](https://elte-dsed.github.io/Intro-Data-Security/labs/).
+1. **Module 1: Foundations** &mdash; Deep neural network training and robust model evaluation.
+2. **Module 2: Input Manipulation** &mdash; Evasion attacks at inference time (FGSM, PGD).
+3. **Module 3: Data Poisoning** &mdash; Training set manipulation (label flipping, backdoors, and trigger injection).
+4. **Module 4: Model Poisoning** &mdash; Supply chain vulnerabilities, model Trojans, and certified detection.
+5. **Module 5: Availability Attacks** &mdash; Sponge examples, latency inflation, and resource exhaustion defenses.
+6. **Module 6: Confidentiality & Privacy** &mdash; Membership Inference Attacks (MIA) and model inversion.
+7. **Module 7: Synthetic Data** &mdash; Privacy-preserving tabular data generation with VAEs and GANs.
+8. **Module 8: Defenses & Robustness** &mdash; Differential Privacy (DP-SGD), Federated Learning, and Adversarial Training.
+
+For the full lab schedule, detailed descriptions, and interactive Colab notebooks, visit the [Course Labs Page](https://elte-dsed.github.io/Intro-Data-Security/labs/).
 
 ## Course Website & Repository Architecture
 
@@ -53,7 +55,7 @@ To add or update a lab, edit **only** `_data/labs.yml`:
   summary: One-line description shown on the Labs page.
 ```
 
-The lab appears automatically on the home-page curriculum table, the Labs page, the Schedule, and the Updates feed. If graded, add a deadline entry in `_data/events.yml` (`lab: lab-9`), which automatically inherits the lab's title.
+The lab appears automatically on the Labs page, the Schedule, and the Updates feed. If graded, add a deadline entry in `_data/events.yml` (`lab: lab-9`), which automatically inherits the lab's title.
 
 Running the site locally requires Ruby 3.3+ and Bundler:
 

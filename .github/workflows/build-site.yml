@@ -80,9 +80,9 @@ jobs:
             fi
           }
 
-          expect _site/index.html            13 'colab-badge\.svg'       'home: one Colab badge per lab'
-          expect _site/index.html             1 'announcement-box'       'home: Updates box rendered'
-          expect _site/index.html             8 'Module [0-9]'           'home: curriculum lists 8 modules'
+          expect _site/labs/index.html        13 'colab-badge\.svg'       'labs: Colab badges rendered'
+          expect _site/index.html              1 'announcement-box'       'home: Updates box rendered'
+          expect _site/index.html              8 'Module [0-9]'           'home: lists 8 thematic modules'
           expect _site/labs/index.html        13 'id="lab-'               'labs: one anchor per lab'
           expect _site/labs/index.html         8 'id="module-'            'labs: one heading per module'
           expect _site/labs/index.html         1 'Federated Learning'     'labs: last lab rendered'
@@ -90,15 +90,13 @@ jobs:
           expect _site/materials/index.html    1 'Google Colab'           'materials: setup notes rendered'
 
           # The curriculum table is four columns wide and does not fit a phone.
-          # It relies on a .table-scroll wrapper (see index.md) plus
+          # It relies on a .table-scroll wrapper (see labs.md) plus
           # overflow-x on that class. Without both, the table pushes the whole
           # page sideways and every page gets a horizontal scrollbar on mobile.
-          # A real browser check would be the ideal guard, but a structural one
-          # is enough here and needs no browser in CI.
-          if grep -q 'class="table-scroll"' _site/index.html \
-             && grep -q 'table class="curriculum"' _site/index.html \
+          if grep -q 'class="table-scroll"' _site/labs/index.html \
+             && grep -q 'table class="curriculum"' _site/labs/index.html \
              && grep -A 2 '\.table-scroll' _site/_css/main.css | grep -q 'overflow-x: auto'; then
-            echo "ok: curriculum table is wrapped in a horizontally scrollable box"
+            echo "ok: curriculum table on labs page is wrapped in a horizontally scrollable box"
           else
             echo "::error::the curriculum table is not wrapped in .table-scroll with overflow-x: auto; it will overflow narrow screens"
             failed=1

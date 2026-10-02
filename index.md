@@ -2,54 +2,40 @@
 layout: home
 ---
 
-## Lab Curriculum
+## Prerequisites
 
-All {{ site.data.labs | size }} labs are runnable in Google Colab with no local setup.
-Open one from the [Labs]({{ '/labs/' | prepend: site.baseurl }}) page and work through it.
+Students should be comfortable with:
+- **Programming:** Python and basic PyTorch (tensors, neural network layers, custom training loops, and data loaders).
+- **Machine Learning Foundations:** Supervised learning, loss functions, optimization via gradient descent, and standard classification metrics.
+- **Compute:** No dedicated local hardware or GPU is required &mdash; all labs run directly in Google Colab.
 
-<div class="table-scroll">
-<table class="curriculum">
-  <caption class="visually-hidden">All {{ site.data.labs | size }} labs, by module</caption>
-  <thead>
-    <tr><th scope="col">Module</th><th scope="col">Lab</th><th scope="col">Topic</th><th scope="col">Notebook</th></tr>
-  </thead>
-  <tbody>
-  {%- for module in site.data.modules %}
-    {%- assign module_labs = site.data.labs | where: "module", module.number -%}
-    {%- for lab in module_labs %}
-    <tr>
-      {%- if forloop.first %}
-      <td rowspan="{{ module_labs | size }}"><strong>Module {{ module.number }}</strong><br>{{ module.title }}</td>
-      {%- endif %}
-      <td>{{ lab.id | replace: "lab-", "" | upcase }}</td>
-      <td>{{ lab.title }}</td>
-      <td>{% include lab_links.html lab=lab %}</td>
-    </tr>
-    {%- endfor %}
-  {%- endfor %}
-  </tbody>
-</table>
-</div>
+## Course Topics
+
+The course covers 8 core modules across the machine learning security lifecycle:
+
+1. **Module 1: Foundations** &mdash; Deep neural network training and robust model baselines
+2. **Module 2: Input Manipulation** &mdash; Evasion attacks at inference time (FGSM, PGD)
+3. **Module 3: Data Poisoning** &mdash; Training set manipulation (label flipping, backdoor triggers, and clean-label poisoning)
+4. **Module 4: Model Poisoning** &mdash; Supply chain risks, pre-trained weight trojans, and certified trojan detection
+5. **Module 5: Availability Attacks** &mdash; Sponge examples, inference latency inflation, and energy-depletion defenses
+6. **Module 6: Confidentiality &amp; Privacy** &mdash; Membership Inference Attacks (MIA) and model inversion
+7. **Module 7: Synthetic Data** &mdash; Privacy-preserving tabular generation using VAEs and GANs
+8. **Module 8: Defenses &amp; Robustness** &mdash; Differential Privacy (DP-SGD), Federated Learning, and Adversarial Training
+
+Interactive notebooks, launch links, and detailed lab descriptions are available on the [**Labs**]({{ '/labs/' | prepend: site.baseurl }}) page.
 
 ## Learning Outcomes
 
-| Skill | Description |
-|-------|-------------|
-| Understand | Fundamental concepts of machine-learning security and privacy |
-| Implement | State-of-the-art attacks (Evasion, Poisoning, Inversion) in PyTorch |
-| Evaluate | Model robustness using quantitative metrics and certified bounds |
-| Design | Multi-layered defense strategies (DP, FL, Robust Training) for production |
-| Generate | Privacy-preserving synthetic data for sensitive domains (healthcare, finance) |
+By the end of this course, students will be able to:
+
+- **Understand** fundamental security and privacy threat models across the machine learning lifecycle.
+- **Implement** state-of-the-art adversarial attacks against deep neural networks in PyTorch.
+- **Evaluate** model vulnerability using quantitative empirical metrics and certified robustness bounds.
+- **Design & Deploy** privacy-preserving and robust defenses, including Differential Privacy (DP-SGD), adversarial training, and federated learning protocols.
+- **Generate** privacy-preserving synthetic tabular datasets for sensitive domain applications.
 
 ## Getting Started
 
-1. Sign in to your [ELTE account](https://account.elte.hu/) if you do not have one yet.
-2. Open the [Schedule]({{ '/schedule/' | prepend: site.baseurl }}) to see when each lab session is held.
-3. Work through the labs in order &mdash; each one builds on the previous module.
-4. Read the [Materials]({{ '/materials/' | prepend: site.baseurl }}) page for setup notes and background reading.
-
-## References & Acknowledgments
-
-- [unica-mlsec/mlsec](https://github.com/unica-mlsec/mlsec) &mdash; Prof. Battista Biggio (University of Cagliari)
-- *Practical Data Privacy* &mdash; Katharine Jarmul (O'Reilly, 2023)
-- *Adversarial Machine Learning* &mdash; Goodfellow, Biggio, Laskov (Cambridge University Press, 2018)
+1. Check the [Schedule]({{ '/schedule/' | prepend: site.baseurl }}) for weekly lab sessions and assignment deadlines.
+2. Open the [Labs]({{ '/labs/' | prepend: site.baseurl }}) page to access interactive notebooks and launch them in Google Colab using your Google account.
+3. Consult the [Materials]({{ '/materials/' | prepend: site.baseurl }}) page for setup recommendations, background reading, and academic integrity policies.
