@@ -41,6 +41,19 @@ jobs:
           # The site is a plain static bundle, so the branch is replaced
           # wholesale rather than merged. This keeps deploys reproducible.
           cd _site
+
+          # Tell GitHub Pages to serve this branch as-is. Without it, Pages
+          # runs its own Jekyll build over the branch using its own defaults
+          # rather than ours -- and Jekyll ignores underscore-prefixed
+          # directories unless they are listed in `include`. Our _config.yml
+          # does list them, but that config is not the one Pages would use, so
+          # _css/ and _images/ would be dropped and the published site would
+          # have no stylesheet, no logo and no staff photos.
+          #
+          # Note this is a Pages-side behaviour and cannot be reproduced with a
+          # local `jekyll build`, which ignores .nojekyll entirely.
+          touch .nojekyll
+
           git init -q
           git checkout -q -b gh-pages
           git add -A --force
