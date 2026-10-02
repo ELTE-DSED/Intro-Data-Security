@@ -37,7 +37,10 @@ Jekyll 3.x as well.
       {%- if item.type == "raw_event" %}
         {{ item.date | date: site.dateformat }} &mdash; {{ item.description }}
       {%- elsif item.type == "due" %}
-        Deadline: {{ item.description }} ({{ item.date | date: site.dateformat }})
+        {%- assign target_lab = site.data.labs | where: "id", item.lab | first -%}
+        {%- assign lab_num = item.lab | remove: "lab-" -%}
+        {%- capture default_desc %}Lab {{ lab_num }}: {{ target_lab.title }}{%- endcapture -%}
+        Deadline: {{ item.description | default: default_desc }} ({{ item.date | date: site.dateformat }})
       {%- elsif item.module %}
         {%- comment -%}
           Not "New lab posted": every lab is dated ahead of today until its

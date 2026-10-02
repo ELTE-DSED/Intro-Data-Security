@@ -92,7 +92,7 @@ Append an entry to `_data/labs.yml`:
 The lab then appears automatically on the home-page curriculum table, the Labs
 page (under `module: 8`), the Schedule, and the Updates box. Add a matching
 deadline in `_data/events.yml` if it is graded, with `lab: lab-9` pointing back
-at the lab so CI can check the two titles agree.
+at the lab. The schedule and updates automatically inherit the lab's title.
 
 ### Dates and timezones
 

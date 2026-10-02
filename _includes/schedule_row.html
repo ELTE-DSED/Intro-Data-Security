@@ -52,11 +52,21 @@ Usage: {% include schedule_row.html item=item %}
 </div>
 
 <div class="col col-2" data-label="Description">
-  {%- if item.type == "raw_event" or item.type == "due" -%}
+  {%- if item.type == "raw_event" -%}
     {%- if item.link -%}
       <a href="{{ item.link }}">{{ item.description }}</a>
     {%- else -%}
       {{ item.description }}
+    {%- endif -%}
+  {%- elsif item.type == "due" -%}
+    {%- assign target_lab = site.data.labs | where: "id", item.lab | first -%}
+    {%- assign lab_num = item.lab | remove: "lab-" -%}
+    {%- capture default_desc %}Lab {{ lab_num }}: {{ target_lab.title }}{%- endcapture -%}
+    {%- assign desc = item.description | default: default_desc -%}
+    {%- if item.link -%}
+      <a href="{{ item.link }}">{{ desc }}</a>
+    {%- else -%}
+      {{ desc }}
     {%- endif -%}
   {%- else -%}
     {{ item.title }}

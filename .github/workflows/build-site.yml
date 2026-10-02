@@ -155,10 +155,9 @@ jobs:
             fi
           fi
 
-          # A deadline in _data/events.yml repeats its lab's title, because the
-          # Schedule shows them in separate rows. Nothing stops the two from
-          # drifting apart, and the Schedule would then contradict the Labs
-          # page. Assert they agree, and that every lab has exactly one.
+          # Deadlines in _data/events.yml automatically inherit their title from
+          # _data/labs.yml. Assert that every deadline points to a known lab, that
+          # every lab has exactly one deadline, and that any explicit description override agrees.
           ruby -ryaml -rdate -e '
             labs   = YAML.load_file("_data/labs.yml",   permitted_classes: [Date, Time])
             events = YAML.load_file("_data/events.yml", permitted_classes: [Date, Time])
@@ -173,13 +172,15 @@ jobs:
                 bad = 1
                 next
               end
-              number = e["lab"].sub("lab-", "")
-              want   = "Lab #{number}: #{lab["title"]}"
-              if e["description"] != want
-                puts "::error::deadline #{e["id"]} description drifted from _data/labs.yml"
-                puts "  events.yml: #{e["description"].inspect}"
-                puts "  expected   : #{want.inspect}"
-                bad = 1
+              if e["description"]
+                number = e["lab"].sub("lab-", "")
+                want   = "Lab #{number}: #{lab["title"]}"
+                if e["description"] != want
+                  puts "::error::deadline #{e["id"]} description drifted from _data/labs.yml"
+                  puts "  events.yml: #{e["description"].inspect}"
+                  puts "  expected   : #{want.inspect}"
+                  bad = 1
+                end
               end
             end
 
@@ -187,7 +188,7 @@ jobs:
               puts "::error::#{labs.length} labs but #{dues.length} deadlines; each lab needs exactly one"
               bad = 1
             end
-            puts(bad.zero? ? "ok: all #{dues.length} deadlines match their lab titles" : "")
+            puts(bad.zero? ? "ok: all #{dues.length} deadlines reference valid labs" : "")
             exit bad
           ' || failed=1
 
