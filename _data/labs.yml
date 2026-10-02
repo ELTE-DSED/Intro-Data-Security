@@ -5,13 +5,10 @@
 #  title, description, date, or notebook.
 #
 #  > Timetable: one lab per week, Tuesdays, starting 2027-02-09.
-#  > Deadlines in _data/events.yml follow the same weekly pattern
-#  > (each due date is exactly 7 days after its lab session, 23:59 Budapest).
 #  >
 #  > Every `date` carries an explicit UTC offset. Budapest is +01:00 in winter
 #  > and +02:00 from the last Sunday of March, so the offset flips partway
-#  > through the term. One hardcoded offset would push summer 23:59 deadlines
-#  > onto the following day.
+#  > through the term.
 #
 #  Fields
 #    id       anchor / unique id (used for links, must be unique)

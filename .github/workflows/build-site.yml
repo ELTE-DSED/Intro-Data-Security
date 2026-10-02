@@ -151,40 +151,19 @@ jobs:
             fi
           fi
 
-          # Deadlines in _data/events.yml automatically inherit their title from
-          # _data/labs.yml. Assert that every deadline points to a known lab, that
-          # every lab has exactly one deadline, and that any explicit description override agrees.
+          # Assert that all course events in _data/events.yml have valid dates, names, and descriptions.
           ruby -ryaml -rdate -e '
-            labs   = YAML.load_file("_data/labs.yml",   permitted_classes: [Date, Time])
             events = YAML.load_file("_data/events.yml", permitted_classes: [Date, Time])
-            by_id  = labs.to_h { |l| [l["id"], l] }
-            dues   = events.select { |e| e["type"] == "due" }
-            bad    = 0
+            bad = 0
 
-            dues.each do |e|
-              lab = by_id[e["lab"]]
-              if lab.nil?
-                puts "::error::deadline #{e["id"]} points at unknown lab #{e["lab"].inspect}"
+            events.each do |e|
+              if e["id"].nil? || e["description"].nil? || e["date"].nil?
+                puts "::error::event #{e.inspect} is missing required fields (id, description, or date)"
                 bad = 1
-                next
-              end
-              if e["description"]
-                number = e["lab"].sub("lab-", "")
-                want   = "Lab #{number}: #{lab["title"]}"
-                if e["description"] != want
-                  puts "::error::deadline #{e["id"]} description drifted from _data/labs.yml"
-                  puts "  events.yml: #{e["description"].inspect}"
-                  puts "  expected   : #{want.inspect}"
-                  bad = 1
-                end
               end
             end
 
-            if dues.length != labs.length
-              puts "::error::#{labs.length} labs but #{dues.length} deadlines; each lab needs exactly one"
-              bad = 1
-            end
-            puts(bad.zero? ? "ok: all #{dues.length} deadlines reference valid labs" : "")
+            puts(bad.zero? ? "ok: all #{events.length} course events are valid" : "")
             exit bad
           ' || failed=1
 

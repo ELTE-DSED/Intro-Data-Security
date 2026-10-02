@@ -62,7 +62,7 @@ Coursework is evaluated continuously throughout the 14-week practicum (**Gyakorl
 | Component | Weight | Assessment | Schedule & Scope |
 |-----------|--------|------------|------------------|
 | **Attendance & Participation** | **15%** | Weekly in-lab presence | Mandatory attendance (max 3 absences per TVSZ) |
-| **Weekly Lab Notebooks** | **25%** | Colab PyTorch assignments | Continuous practice, submitted weekly by 23:59 |
+| **Lab Exercises & Oral Defense** | **25%** | In-class exercise checkoffs | Completed during lab and orally explained to instructor |
 | **Midterm Practical Test (ZH 1)** | **30%** | In-class supervised test | Week 7 (Modules 1 to 4: Evasion & Poisoning) |
 | **End-Term Practical Test (ZH 2)** | **30%** | In-class supervised test | Week 14 (Modules 5 to 8: Privacy & Defenses) |
 
@@ -80,10 +80,10 @@ Coursework is evaluated continuously throughout the 14-week practicum (**Gyakorl
 - **Passing Threshold:** Requires at least 40% (Grade 2) overall and at least 40% on each of the two in-class tests (ZH 1 and ZH 2).
 - **Retake Policy (Pótlás):** In accordance with ELTE TVSZ, students may sit for one comprehensive retake examination (Pót-ZH) at semester end to make up or improve a test score.
 - **Attendance Limit:** In accordance with ELTE TVSZ, missing more than 3 lab sessions results in refusal of the practical mark.
-- **AI & Oral Verification:** AI tools are permitted as coding aids, but students must be able to explain all submitted code. Instructors conduct oral spot-checks during lab hours. Inability to explain code results in zero credit.
+- **AI & Oral Explanation Policy:** AI code assistants may be used to generate or refine code. However, credit is awarded exclusively when the student demonstrates full comprehension by clearly explaining the code logic, algorithm mechanics, and experimental observations. Inability to explain code results in zero credit for the exercise.
 
 ## Getting Started
 
-1. Check the [Schedule]({{ '/schedule/' | prepend: site.baseurl }}) for weekly lab sessions and assignment deadlines.
+1. Check the [Schedule]({{ '/schedule/' | prepend: site.baseurl }}) for weekly lab sessions and evaluation milestones.
 2. Open the [Labs]({{ '/labs/' | prepend: site.baseurl }}) page to access interactive notebooks and launch them in Google Colab using your Google account.
 3. Consult the [Resources]({{ '/resources/' | prepend: site.baseurl }}) page for setup recommendations, background reading, and tools.

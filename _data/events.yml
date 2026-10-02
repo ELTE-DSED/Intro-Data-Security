@@ -1,93 +1,16 @@
 # ==========================================================
-#  Dated course events, in one place.
-#
-#  These used to be fifteen files in a Jekyll collection (`_events/*.md`),
-#  but they are pure data: nothing renders an event as a page, and only
-#  `description`, `date` and the optional `content` are ever read.
-#
-#  type: due        a graded deadline. "Due" rows on the Schedule.
-#                  `lab` names the entry in _data/labs.yml it belongs to.
-#                  The description automatically defaults to
-#                  "Lab <number>: <title>" from _data/labs.yml.
-#  type: raw_event  anything else (holidays, presentations).
+#  Dated course events (milestones, exams, holidays).
 #
 #  Fields
-#    id          stable identifier, not currently rendered
-#    type        due | raw_event
-#    date        when it happens, with an explicit UTC offset (see the note
-#                on offsets in _data/labs.yml)
-#    lab         due only: id of the lab in _data/labs.yml
-#    description optional for due (defaults to lab title); required for raw_event
-#    name        row label for raw_event (defaults to nothing)
-#    hide_time   raw_event only: omit the clock time from the Schedule
+#    id          stable identifier
+#    type        raw_event
+#    date        when it happens, with an explicit UTC offset
+#    description what the Schedule and the Updates box show
+#    name        row label (Evaluation, Holiday, etc.)
+#    hide_time   omit the clock time from the Schedule
 #    hide_from_announcements  keep it off the home-page Updates box
-#    content     raw_event only: the Course Material column
+#    content     detailed description on the Schedule page
 # ==========================================================
-
-- id: due_lab_1
-  type: due
-  lab: lab-1
-  date: 2027-02-16T23:59:00+01:00
-
-- id: due_lab_2
-  type: due
-  lab: lab-2
-  date: 2027-02-23T23:59:00+01:00
-
-- id: due_lab_3a
-  type: due
-  lab: lab-3a
-  date: 2027-03-02T23:59:00+01:00
-
-- id: due_lab_3b
-  type: due
-  lab: lab-3b
-  date: 2027-03-09T23:59:00+01:00
-
-- id: due_lab_4a
-  type: due
-  lab: lab-4a
-  date: 2027-03-16T23:59:00+01:00
-
-- id: due_lab_4b
-  type: due
-  lab: lab-4b
-  date: 2027-03-23T23:59:00+01:00
-
-- id: due_lab_5a
-  type: due
-  lab: lab-5a
-  date: 2027-03-30T23:59:00+02:00
-
-- id: due_lab_5b
-  type: due
-  lab: lab-5b
-  date: 2027-04-06T23:59:00+02:00
-
-- id: due_lab_6a
-  type: due
-  lab: lab-6a
-  date: 2027-04-13T23:59:00+02:00
-
-- id: due_lab_6b
-  type: due
-  lab: lab-6b
-  date: 2027-04-20T23:59:00+02:00
-
-- id: due_lab_7
-  type: due
-  lab: lab-7
-  date: 2027-04-27T23:59:00+02:00
-
-- id: due_lab_8a
-  type: due
-  lab: lab-8a
-  date: 2027-05-04T23:59:00+02:00
-
-- id: due_lab_8b
-  type: due
-  lab: lab-8b
-  date: 2027-05-11T23:59:00+02:00
 
 - id: midterm_zh
   type: raw_event

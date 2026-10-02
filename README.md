@@ -35,7 +35,7 @@ The course website is built with Jekyll and automatically deployed to GitHub Pag
 | `modules/` | All 8 thematic course modules containing Jupyter notebooks (`.ipynb`), helper scripts, and image assets. |
 | `_data/labs.yml` | **Single source of truth** for all labs (titles, dates, Colab paths, summaries). |
 | `_data/modules.yml` | The 8 modules, their titles, and overviews. |
-| `_data/events.yml` | Deadlines (`type: due`) and custom calendar events (`type: raw_event`). Titles inherit from `labs.yml`. |
+| `_data/events.yml` | Course calendar events (practical evaluations and holidays). |
 | `_data/people.yml` | Course instructors and teaching assistants. |
 | `_data/nav.yml` | Header navigation menu. |
 | `_announcements/` | Markdown announcements shown in the Updates box on the home page. |
@@ -55,7 +55,7 @@ To add or update a lab, edit **only** `_data/labs.yml`:
   summary: One-line description shown on the Labs page.
 ```
 
-The lab appears automatically on the Labs page, the Schedule, and the Updates feed. If graded, add a deadline entry in `_data/events.yml` (`lab: lab-9`), which automatically inherits the lab's title.
+The lab appears automatically on the Labs page, the Schedule, and the Updates feed.
 
 Running the site locally requires Ruby 3.3+ and Bundler:
 
