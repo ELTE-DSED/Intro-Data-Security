@@ -38,4 +38,4 @@ By the end of this course, students will be able to:
 
 1. Check the [Schedule]({{ '/schedule/' | prepend: site.baseurl }}) for weekly lab sessions and assignment deadlines.
 2. Open the [Labs]({{ '/labs/' | prepend: site.baseurl }}) page to access interactive notebooks and launch them in Google Colab using your Google account.
-3. Consult the [Materials]({{ '/materials/' | prepend: site.baseurl }}) page for setup recommendations, background reading, and academic integrity policies.
+3. Consult the [Materials]({{ '/materials/' | prepend: site.baseurl }}) page for setup recommendations, grading criteria, and academic integrity policies.
