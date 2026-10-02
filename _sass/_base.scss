@@ -362,30 +362,23 @@ pre {
 
 .profile-pic-gallary {
     padding: 0px;
-    display: inline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
 }
 
 .image--cover-container {
-    // This class is also the person *card*: the photo, the name and the role
-    // all sit inside it, so the width has to fit the name, not just the disc.
-    // 80px disc + room for a two-line full name ("Ahmed Fouad Lagha").
-    // Must stay >= .image--cover and .image--cover.person-initials (both 80px).
-    width: 170px;
-    float: left;
-    text-align: center;
+    text-align: left;
     margin: 0px;
-    margin-right: 30px;
 }
 
 .image--cover {
-    width: 80px;
-    height: 80px;
+    width: 84px;
+    height: 84px;
     border-radius: 50%;
-    margin-bottom: 10px;
-
+    margin-bottom: 8px;
+    display: block;
     object-fit: cover;
-    // Centre the crop. The template shipped with `center right`, which shifts
-    // faces toward the edge and clips them inside the circular mask.
     object-position: center;
 }
 
