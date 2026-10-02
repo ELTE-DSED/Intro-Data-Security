@@ -1,6 +1,6 @@
 {%- comment -%}
 Single unified schedule table row used by _layouts/schedule.html.
-Renders lab sessions paired with their assignment deadline, as well as holidays and evaluations.
+Renders lab sessions, holidays, and evaluations.
 {%- endcomment -%}
 {%- assign item = include.item -%}
 
@@ -19,7 +19,7 @@ Renders lab sessions paired with their assignment deadline, as well as holidays 
   {%- endif -%}
 </div>
 
-<div class="col col-1-2" data-label="Session">
+<div class="col col-1-2" data-label="Date">
   <span class="session-date">{{ item.date | date: site.dateformat }}</span>
   {%- if item.type == "raw_event" and item.hide_time != true -%}
     <span class="session-time">{{ item.date | date: "%H:%M" }}</span>
@@ -48,29 +48,6 @@ Renders lab sessions paired with their assignment deadline, as well as holidays 
     </div>
     {%- if item.summary -%}
       <div class="schedule-topic-summary">{{ item.summary }}</div>
-    {%- endif -%}
-  {%- endif -%}
-</div>
-
-<div class="col col-4 markdown-content" data-label="Assignment Deadline">
-  {%- if item.type == "raw_event" -%}
-    {%- if item.name == "Holiday" -%}
-      <span class="deadline-note deadline-holiday">No lab session</span>
-    {%- elsif item.name == "Evaluation" -%}
-      <span class="deadline-badge deadline-eval"><i class="fas fa-edit" aria-hidden="true"></i> In-class test</span>
-    {%- else -%}
-      <span class="deadline-note">None</span>
-    {%- endif -%}
-  {%- else -%}
-    {%- assign due_event = site.data.events | where: "lab", item.id | first -%}
-    {%- if due_event -%}
-      <div class="deadline-box">
-        <span class="deadline-badge">
-          <i class="fas fa-clock" aria-hidden="true"></i> Due: {{ due_event.date | date: site.dateformat }} <span class="deadline-time">{{ due_event.date | date: "%H:%M" }}</span>
-        </span>
-      </div>
-    {%- else -%}
-      <span class="deadline-note">None</span>
     {%- endif -%}
   {%- endif -%}
 </div>

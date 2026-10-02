@@ -100,7 +100,7 @@
 - id: end_term_zh
   type: raw_event
   name: Evaluation
-  date: 2027-05-10T10:00:00+02:00
+  date: 2027-05-11T10:00:00+02:00
   description: End-Term Practical Evaluation (ZH 2)
   hide_time: false
   content: In-class supervised practical test covering Modules 5 through 8 (Privacy, Synthetic Data, and Defenses).
