@@ -1,87 +1,76 @@
 {%- comment -%}
-One schedule table row, used by _layouts/schedule.html for every kind of item.
-
-This replaces three near-identical includes (schedule_row_lab / _due /
-_raw_event) that each repeated the same four-column skeleton and differed
-only in the event label, whether a time is shown, and where the description
-and course-material text come from. Adding a fourth row type meant copying
-the skeleton again; here it means one more branch.
-
-`include.item.type` selects the variant:
-  due        - graded deadline (label "Due", time shown, description)
-  raw_event  - custom event (label from `name`, time optional)
-  (absent)   - lab session (label "Lab", no time, title + notebook links)
-
-Usage: {% include schedule_row.html item=item %}
+Single unified schedule table row used by _layouts/schedule.html.
+Renders lab sessions paired with their assignment deadline, as well as holidays and evaluations.
 {%- endcomment -%}
 {%- assign item = include.item -%}
 
 <div class="col col-1" data-label="Event">
-  {%- if item.type == "due" -%}
-    Due
-  {%- elsif item.type == "raw_event" -%}
-    {{ item.name }}
-  {%- else -%}
-    Lab
-  {%- endif -%}
-</div>
-
-<div class="col col-1-2" data-label="Date">
-  {{ item.date | date: site.dateformat }}
-  {%- comment -%}
-    A deadline always shows its 23:59. A lab session has no meaningful time to
-    show. A raw event opts out with `hide_time: true`.
-
-    Written as nested ifs rather than
-    `type == "due" or (type == "raw_event" and hide_time != true)`:
-    Liquid does not support parentheses for grouping inside `if`, and that form
-    silently evaluated true for every row.
-  {%- endcomment -%}
-  {%- assign show_time = false -%}
-  {%- if item.type == "due" -%}
-    {%- assign show_time = true -%}
-  {%- elsif item.type == "raw_event" -%}
-    {%- if item.hide_time != true -%}
-      {%- assign show_time = true -%}
-    {%- endif -%}
-  {%- endif -%}
-  {%- if show_time -%}
-    {{ item.date | date: "%H:%M" }}
-  {%- endif -%}
-  <br class="date-spliter" />{{ item.date | date: "%A" }}
-</div>
-
-<div class="col col-2" data-label="Description">
   {%- if item.type == "raw_event" -%}
-    {%- if item.link -%}
-      <a href="{{ item.link }}">{{ item.description }}</a>
+    {%- if item.name == "Holiday" -%}
+      <span class="schedule-tag tag-holiday">{{ item.name }}</span>
+    {%- elsif item.name == "Evaluation" -%}
+      <span class="schedule-tag tag-eval">{{ item.name }}</span>
     {%- else -%}
-      {{ item.description }}
-    {%- endif -%}
-  {%- elsif item.type == "due" -%}
-    {%- assign target_lab = site.data.labs | where: "id", item.lab | first -%}
-    {%- assign lab_num = item.lab | remove: "lab-" -%}
-    {%- capture default_desc %}Lab {{ lab_num }}: {{ target_lab.title }}{%- endcapture -%}
-    {%- assign desc = item.description | default: default_desc -%}
-    {%- if item.link -%}
-      <a href="{{ item.link }}">{{ desc }}</a>
-    {%- else -%}
-      {{ desc }}
+      <span class="schedule-tag">{{ item.name }}</span>
     {%- endif -%}
   {%- else -%}
-    {{ item.title }}
+    {%- assign lab_num = item.id | remove: "lab-" -%}
+    <span class="schedule-tag tag-lab">Lab {{ lab_num }}</span>
+  {%- endif -%}
+</div>
+
+<div class="col col-1-2" data-label="Session">
+  <span class="session-date">{{ item.date | date: site.dateformat }}</span>
+  {%- if item.type == "raw_event" and item.hide_time != true -%}
+    <span class="session-time">{{ item.date | date: "%H:%M" }}</span>
+  {%- endif -%}
+  <br class="date-spliter" /><span class="session-day">{{ item.date | date: "%A" }}</span>
+</div>
+
+<div class="col col-2" data-label="Topic &amp; Materials">
+  {%- if item.type == "raw_event" -%}
+    <div class="schedule-topic-title">
+      {%- if item.link -%}
+        <a href="{{ item.link }}">{{ item.description }}</a>
+      {%- else -%}
+        <strong>{{ item.description }}</strong>
+      {%- endif -%}
+    </div>
+    {%- if item.content -%}
+      <div class="schedule-topic-summary">{{ item.content }}</div>
+    {%- endif -%}
+  {%- else -%}
+    <div class="schedule-topic-title">
+      <a href="{{ site.baseurl }}/labs/#{{ item.id }}" class="schedule-lab-title">{{ item.title }}</a>
+    </div>
     <div class="schedule-lecture-links">
       {% include lab_links.html lab=item %}
     </div>
+    {%- if item.summary -%}
+      <div class="schedule-topic-summary">{{ item.summary }}</div>
+    {%- endif -%}
   {%- endif -%}
 </div>
 
-<div class="col col-4 markdown-content" data-label="Course Material">
-  {%- if item.type == "due" -%}
-    {%- comment -%} A deadline points at the lab, not at course material. {%- endcomment -%}
-  {%- elsif item.type == "raw_event" -%}
-    {{ item.content }}
+<div class="col col-4 markdown-content" data-label="Assignment Deadline">
+  {%- if item.type == "raw_event" -%}
+    {%- if item.name == "Holiday" -%}
+      <span class="deadline-note deadline-holiday">No lab session</span>
+    {%- elsif item.name == "Evaluation" -%}
+      <span class="deadline-badge deadline-eval"><i class="fas fa-edit" aria-hidden="true"></i> In-class test</span>
+    {%- else -%}
+      <span class="deadline-note">None</span>
+    {%- endif -%}
   {%- else -%}
-    {{ item.summary }}
+    {%- assign due_event = site.data.events | where: "lab", item.id | first -%}
+    {%- if due_event -%}
+      <div class="deadline-box">
+        <span class="deadline-badge">
+          <i class="fas fa-clock" aria-hidden="true"></i> Due: {{ due_event.date | date: site.dateformat }} <span class="deadline-time">{{ due_event.date | date: "%H:%M" }}</span>
+        </span>
+      </div>
+    {%- else -%}
+      <span class="deadline-note">None</span>
+    {%- endif -%}
   {%- endif -%}
 </div>

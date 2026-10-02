@@ -2,12 +2,8 @@
 layout: default
 ---
 {%- comment -%}
-Builds one chronological table from two sources:
-  * _data/labs.yml  -> lab sessions
-  * _data/events.yml -> deadlines ("due") and any custom events ("raw_event")
-
-`item.type` selects the row variant inside _includes/schedule_row.html.
-Labs omit `type` in _data/labs.yml, so they render the lab variant.
+Chronological schedule: combines all 13 lab sessions with holidays and evaluations.
+Deadlines are paired directly with their respective lab sessions.
 {%- endcomment -%}
 
 <header class="post-header">
@@ -25,24 +21,20 @@ Labs omit `type` in _data/labs.yml, so they render the lab variant.
 </div>
 {% endif %}
 
-{%- assign events_sorted = site.data.events | concat: site.data.labs | sort: "date" -%}
+{%- assign raw_events = site.data.events | where: "type", "raw_event" -%}
+{%- assign events_sorted = site.data.labs | concat: raw_events | sort: "date" -%}
 
 <div class="home schedule-table">
     <ul class="responsive-table schedule-rows">
         <li class="table-header">
             <div class="col col-1">Event</div>
-            <div class="col col-1-2">Date</div>
-            <div class="col col-2">Description</div>
-            <div class="col col-4">Course Material</div>
+            <div class="col col-1-2">Session</div>
+            <div class="col col-2">Topic &amp; Materials</div>
+            <div class="col col-4">Assignment Deadline</div>
         </li>
 
         {%- for item in events_sorted -%}
-        {%- comment -%}
-        Each row must be an <li class="table-row...">: the .responsive-table
-        rules in _sass/_base.scss lay out rows with `li { display:flex }` and
-        colour them via .table-row-due / .table-row-exam.
-        {%- endcomment -%}
-        <li class="table-row table-row-{{ item.type | default: 'lab' }}">
+        <li class="table-row table-row-{{ item.name | default: 'lab' | slugify }}">
             {%- include schedule_row.html item=item %}
         </li>
         {%- endfor -%}
