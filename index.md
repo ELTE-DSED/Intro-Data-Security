@@ -34,8 +34,31 @@ By the end of this course, students will be able to:
 - **Design & Deploy** privacy-preserving and robust defenses, including Differential Privacy (DP-SGD), adversarial training, and federated learning protocols.
 - **Generate** privacy-preserving synthetic tabular datasets for sensitive domain applications.
 
+## Grading & Evaluation
+
+The final course grade is based on hands-on laboratory coursework and a capstone practical security project:
+
+| Component | Weight | Description |
+|-----------|--------|-------------|
+| **Lab Assignments** | 50% | Hands-on PyTorch notebooks completed and submitted by their scheduled deadlines. Evaluated on implementation correctness, experimental methodology, and analysis. |
+| **Final Project & Presentation** | 50% | A practical security audit of an ML system or implementation of a novel defense. Presented in a 10-minute session followed by Q&A. |
+
+### Grading Scale
+
+Final grades follow the standard 5-point university grading scale:
+
+| Percentage Range | Grade | Descriptor |
+|------------------|-------|------------|
+| 85% to 100% | **5** | Excellent |
+| 70% to 84% | **4** | Good |
+| 55% to 69% | **3** | Satisfactory |
+| 40% to 54% | **2** | Pass |
+| Below 40% | **1** | Fail |
+
+Both components (Lab Assignments and Final Project) must reach at least a passing standard (Grade 2) to complete the course.
+
 ## Getting Started
 
 1. Check the [Schedule]({{ '/schedule/' | prepend: site.baseurl }}) for weekly lab sessions and assignment deadlines.
 2. Open the [Labs]({{ '/labs/' | prepend: site.baseurl }}) page to access interactive notebooks and launch them in Google Colab using your Google account.
-3. Consult the [Materials]({{ '/materials/' | prepend: site.baseurl }}) page for setup recommendations, grading criteria, and academic integrity policies.
+3. Consult the [Resources]({{ '/resources/' | prepend: site.baseurl }}) page for setup recommendations, background reading, and tools.

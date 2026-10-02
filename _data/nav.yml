@@ -11,6 +11,6 @@ items:
   name: Labs
   icon_class: fas fa-flask
 
-- url: /materials/
-  name: Materials
+- url: /resources/
+  name: Resources
   icon_class: fas fa-book

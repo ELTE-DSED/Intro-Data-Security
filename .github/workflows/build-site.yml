@@ -50,7 +50,7 @@ jobs:
       - name: Check key pages were generated
         run: |
           missing=0
-          for page in index.html schedule/index.html labs/index.html materials/index.html _css/main.css; do
+          for page in index.html schedule/index.html labs/index.html resources/index.html _css/main.css; do
             if [ ! -f "_site/$page" ]; then
               echo "::error::Missing expected output: _site/$page"
               missing=1
@@ -87,7 +87,7 @@ jobs:
           expect _site/labs/index.html         8 'id="module-'            'labs: one heading per module'
           expect _site/labs/index.html         1 'Federated Learning'     'labs: last lab rendered'
           expect _site/schedule/index.html    28 'class="table-row'      'schedule: 13 labs + 13 dues + 2 events'
-          expect _site/materials/index.html    1 'Google Colab'           'materials: setup notes rendered'
+          expect _site/resources/index.html    1 'Google Colab'           'resources: setup notes rendered'
 
           # The curriculum table is four columns wide and does not fit a phone.
           # It relies on a .table-scroll wrapper (see labs.md) plus

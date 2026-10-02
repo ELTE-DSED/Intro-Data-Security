@@ -41,7 +41,7 @@ The course website is built with Jekyll and automatically deployed to GitHub Pag
 | `_announcements/` | Markdown announcements shown in the Updates box on the home page. |
 | `_config.yml` | Site configuration, semester, and exclude rules. |
 | `_layouts/`, `_includes/`, `_sass/` | HTML templates, modular partials, and SCSS stylesheets. |
-| `index.md`, `schedule.md`, `labs.md`, `materials.md` | The core site pages. |
+| `index.md`, `schedule.md`, `labs.md`, `resources.md` | The core site pages. |
 
 
 To add or update a lab, edit **only** `_data/labs.yml`:
