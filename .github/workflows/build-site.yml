@@ -89,14 +89,12 @@ jobs:
           expect _site/schedule/index.html    28 'class="table-row'      'schedule: 13 labs + 13 dues + 2 events'
           expect _site/resources/index.html    1 'Google Colab'           'resources: setup notes rendered'
 
-          # The curriculum table is four columns wide and does not fit a phone.
-          # It relies on a .table-scroll wrapper (see labs.md) plus
-          # overflow-x on that class. Without both, the table pushes the whole
-          # page sideways and every page gets a horizontal scrollbar on mobile.
-          if grep -q 'class="table-scroll"' _site/labs/index.html \
-             && grep -q 'table class="curriculum"' _site/labs/index.html \
+          # The curriculum table on the home page is wrapped in .table-scroll
+          # with overflow-x: auto so it scrolls sideways inside its box on narrow screens.
+          if grep -q 'class="table-scroll"' _site/index.html \
+             && grep -q 'table class="curriculum"' _site/index.html \
              && grep -A 2 '\.table-scroll' _site/_css/main.css | grep -q 'overflow-x: auto'; then
-            echo "ok: curriculum table on labs page is wrapped in a horizontally scrollable box"
+            echo "ok: curriculum table on home page is wrapped in a horizontally scrollable box"
           else
             echo "::error::the curriculum table is not wrapped in .table-scroll with overflow-x: auto; it will overflow narrow screens"
             failed=1

@@ -99,35 +99,68 @@ a.lab-link {
   line-height: 1;
 }
 
-// ---------- Curriculum table (home page) ----------
+// ---------- Curriculum table (Home page) ----------
 
-// The curriculum has four columns and is wider than a phone screen. Wrapped in
-// .table-scroll (see index.md) so it scrolls sideways inside its own box,
-// instead of pushing the whole page sideways and giving every page a
-// horizontal scrollbar.
 .table-scroll {
   overflow-x: auto;
+  margin-bottom: 24px;
 }
 
 table.curriculum {
   width: 100%;
   border-collapse: collapse;
+  margin: 14px 0 8px;
   font-size: 0.9em;
+  border: 1px solid $grey-color-light;
 
   th, td {
     border: 1px solid $grey-color-light;
-    padding: 8px 10px;
+    padding: 10px 14px;
     text-align: left;
     vertical-align: middle;
   }
 
   th {
-    background: darken($primary-color, 3%);
-    color: #fff;
+    background: #f8fafc;
+    color: $primary-color;
+    font-weight: 700;
+    white-space: nowrap;
   }
 
-  td:first-child {
-    background: lighten($primary-color, 55%);
+  td.module-cell {
+    background: #f8fafc;
+    font-weight: 600;
+    vertical-align: top;
+    width: 28%;
+    line-height: 1.4;
+
+    strong {
+      color: $primary-color;
+    }
+  }
+
+  .module-title-sub {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #4b5563;
+  }
+
+  td.lab-id-cell {
+    text-align: center;
+    font-weight: 700;
+    color: $primary-color;
+    width: 60px;
+  }
+
+  td.lab-date-cell {
+    white-space: nowrap;
+    color: #64748b;
+    font-size: 0.88em;
+    width: 16%;
+  }
+
+  tbody tr:hover td:not(.module-cell) {
+    background-color: #f8fafc;
   }
 }
 

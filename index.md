@@ -9,20 +9,41 @@ Students should be comfortable with:
 - **Machine Learning Foundations:** Supervised learning, loss functions, optimization via gradient descent, and standard classification metrics.
 - **Compute:** No dedicated local hardware or GPU is required. All labs run directly in Google Colab.
 
-## Course Topics
+## Course Curriculum
 
-The course covers 8 core modules across the machine learning security lifecycle:
+The curriculum spans 8 core modules across the 14-week practicum. Select any lab topic to jump directly to its technical objectives and launch the notebook on the [**Labs**]({{ '/labs/' | prepend: site.baseurl }}) page:
 
-1. **Module 1: Foundations**: Deep neural network training and robust model baselines
-2. **Module 2: Input Manipulation**: Evasion attacks at inference time (FGSM, PGD)
-3. **Module 3: Data Poisoning**: Training set manipulation (label flipping, backdoor triggers, and clean-label poisoning)
-4. **Module 4: Model Poisoning**: Supply chain risks, pre-trained weight trojans, and certified trojan detection
-5. **Module 5: Availability Attacks**: Sponge examples, inference latency inflation, and energy-depletion defenses
-6. **Module 6: Confidentiality &amp; Privacy**: Membership Inference Attacks (MIA) and model inversion
-7. **Module 7: Synthetic Data**: Privacy-preserving tabular generation using VAEs and GANs
-8. **Module 8: Defenses &amp; Robustness**: Differential Privacy (DP-SGD), Federated Learning, and Adversarial Training
-
-Interactive notebooks, launch links, and detailed lab descriptions are available on the [**Labs**]({{ '/labs/' | prepend: site.baseurl }}) page.
+<div class="table-scroll">
+<table class="curriculum">
+  <caption class="visually-hidden">All {{ site.data.labs | size }} labs, by module</caption>
+  <thead>
+    <tr>
+      <th scope="col">Module</th>
+      <th scope="col">Lab</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Session Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%- for module in site.data.modules %}
+    {%- assign module_labs = site.data.labs | where: "module", module.number -%}
+    {%- for lab in module_labs %}
+    <tr>
+      {%- if forloop.first %}
+      <td class="module-cell" rowspan="{{ module_labs | size }}">
+        <strong>Module {{ module.number }}</strong><br>
+        <span class="module-title-sub">{{ module.title }}</span>
+      </td>
+      {%- endif %}
+      <td class="lab-id-cell">{{ lab.id | replace: "lab-", "" | upcase }}</td>
+      <td><a href="{{ '/labs/' | prepend: site.baseurl }}#{{ lab.id }}">{{ lab.title }}</a></td>
+      <td class="lab-date-cell">{{ lab.date | date: site.dateformat }}</td>
+    </tr>
+    {%- endfor %}
+  {%- endfor %}
+  </tbody>
+</table>
+</div>
 
 ## Learning Outcomes
 
