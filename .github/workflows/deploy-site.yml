@@ -37,10 +37,27 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Publish to gh-pages
+        env:
+          # Set explicitly rather than relying on the ambient GITHUB_TOKEN. An
+          # unset token expands the push URL to "x-access-token:@github.com",
+          # which GitHub rejects with "Invalid username or token. Password
+          # authentication is not supported" -- an error that points at nothing
+          # useful. Fail early with a message that names the real cause.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # The site is a plain static bundle, so the branch is replaced
           # wholesale rather than merged. This keeps deploys reproducible.
           cd _site
+
+          if [ -z "${GITHUB_TOKEN:-}" ]; then
+            echo "::error::GITHUB_TOKEN is empty in this step, so the push cannot authenticate."
+            echo "::error::Check that the repository's Actions workflow permissions are set to"
+            echo "::error::'Read and write permissions' (Settings -> Actions -> General ->"
+            echo "::error::Workflow permissions), and that no repository variable or"
+            echo "::error::environment named GITHUB_TOKEN shadows the automatic one."
+            exit 1
+          fi
+          echo "GITHUB_TOKEN is present (${#GITHUB_TOKEN} characters)"
 
           # Tell GitHub Pages to serve this branch as-is. Without it, Pages
           # runs its own Jekyll build over the branch using its own defaults
