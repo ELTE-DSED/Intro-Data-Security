@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+
+
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Introduction to Data Security Practicum / Spring 2027 - Eötvös Loránd University</title>
+  <meta name="description" content=" - Introduction to Data Security Practicum / Spring 2027">
+
+  <!-- Open Graph / Social Sharing (Facebook, LinkedIn, WhatsApp, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elte-dsed.github.io/Intro-Data-Security/">
+  <meta property="og:title" content="Introduction to Data Security Practicum / Spring 2027">
+  <meta property="og:description" content="Machine learning models are increasingly deployed in security-critical settings, including medical diagnostics, autonomous vehicles, and financial fraud dete...">
+  <meta property="og:image" content="https://elte-dsed.github.io/Intro-Data-Security/_images/og-image.png">
+  <meta property="og:image:secure_url" content="https://elte-dsed.github.io/Intro-Data-Security/_images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Introduction to Data Security Practicum / Spring 2027">
+  <meta property="og:site_name" content="Eötvös Loránd University">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Introduction to Data Security Practicum / Spring 2027">
+  <meta name="twitter:description" content="Machine learning models are increasingly deployed in security-critical settings, including medical diagnostics, autonomous vehicles, and financial fraud dete...">
+  <meta name="twitter:image" content="https://elte-dsed.github.io/Intro-Data-Security/_images/og-image.png">
+  <meta name="twitter:image:alt" content="Introduction to Data Security Practicum / Spring 2027">
+  
+  <link rel="icon" type="image/svg+xml" href="/Intro-Data-Security/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Intro-Data-Security/_images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Intro-Data-Security/_images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Intro-Data-Security/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/Intro-Data-Security/favicon.ico">
+
+  <link rel="stylesheet" href="/Intro-Data-Security/_css/main.css">
+  <link rel="canonical" href="https://elte-dsed.github.io/Intro-Data-Security/">
+<link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.2.4' type='text/css' media='all' />
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:600italic,600,400,400italic' rel='stylesheet' type='text/css'>
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper header-inner"><div class="header-brand">
+          <div class="header-logo-cell">
+            <a href="/Intro-Data-Security/" aria-label="Introduction to Data Security Practicum">
+              <img class="site-logo" src="/Intro-Data-Security/_images/logo.svg" alt="Eötvös Loránd University">
+            </a>
+          </div>
+          <div class="header-title-cell">
+            <a class="schoolname" href="https://www.elte.hu" target="_blank" rel="noopener">Eötvös Loránd University</a>
+            <br/>
+            <span class="site-title"><a href="/Intro-Data-Security/" title="Introduction to Data Security Practicum / Spring 2027 - Eötvös Loránd University"><b>Introduction to Data Security Practicum</b></a></span>
+            <br/>
+            <span class="coursesemester">Spring 2027</span>
+          </div>
+      </div>
+
+    <nav class="site-nav">
+
+      <a href="#" class="menu-icon menu.open" aria-label="Toggle navigation">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+    <div class="trigger"><h1 class="visually-hidden">Main Navigation</h1>
+
+ <ul class="menu">
+    
+    <li>
+        <a class="page-link" href="/Intro-Data-Security/">
+            <i class="fa fa-home fa-lg"></i> Home
+        </a>
+    </li>
+    
+    <li>
+        <a class="page-link" href="/Intro-Data-Security/schedule/">
+            <i class="fas fa-calendar-alt"></i> Schedule
+        </a>
+    </li>
+    
+    <li>
+        <a class="page-link" href="/Intro-Data-Security/labs/">
+            <i class="fas fa-flask"></i> Labs
+        </a>
+    </li>
+    
+    <li>
+        <a class="page-link" href="/Intro-Data-Security/resources/">
+            <i class="fas fa-book"></i> Resources
+        </a>
+    </li>
+    
+</ul>
+
+     </div>
+    </nav>
+
+  </div>
+
+  <div class="header-texture" style="background-image: url('/Intro-Data-Security/_images/pattern.png');" />
+
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="home">
+
+  <h1>Introduction to Data Security Practicum <span class="course-term">/ Spring 2027 </span></h1>
+
+  
+<div class="announcement-box updates-box">
+  <h2>Updates</h2>
+  <ul>
+    <li class="no-p-margin">
+      <span class="announcement-body">Welcome to <strong>Introduction to Data Security Practicum / Spring 2027</strong>! All labs
+run directly in Google Colab with no local setup required. See the
+<a href="/Intro-Data-Security/resources/">Resources</a> page for setup recommendations, and the
+<a href="/Intro-Data-Security/labs/">Labs</a> page for the full curriculum.
+</span>
+    </li>
+  </ul>
+</div>
+
+
+  <br />
+
+  <h2>Overview</h2>
+  <p>Machine learning models are increasingly deployed in security-critical settings, including medical diagnostics, autonomous vehicles, and financial fraud detection. Unlike traditional software where security boundaries rely on deterministic logic and memory safety, deep neural networks present vulnerabilities tied to their statistical nature, high-dimensional representations, and training data dependencies.</p>
+
+<p>This practicum explores security and privacy across the machine learning lifecycle through hands-on implementation in PyTorch. Students study both attack techniques and defensive methods: crafting evasion inputs, poisoning training sets, embedding weight backdoors, and extracting private training records via membership inference and model inversion. In parallel, students implement defenses including adversarial training, certified robustness, differential privacy (DP-SGD), and federated learning protocols.</p>
+
+
+  <h2 id="prerequisites">Prerequisites</h2>
+
+<p>Students should be comfortable with:</p>
+<ul>
+  <li><strong>Programming:</strong> Python and basic PyTorch (tensors, neural network layers, custom training loops, and data loaders).</li>
+  <li><strong>Machine Learning Foundations:</strong> Supervised learning, loss functions, optimization via gradient descent, and standard classification metrics.</li>
+  <li><strong>Compute:</strong> No dedicated local hardware or GPU is required. All labs run directly in Google Colab.</li>
+</ul>
+
+<h2 id="course-curriculum">Course Curriculum</h2>
+
+<p>The curriculum spans 8 core modules across the 14-week practicum. Select any lab topic to jump directly to its technical objectives and launch the notebook on the <a href="/Intro-Data-Security/labs/"><strong>Labs</strong></a> page:</p>
+
+<div class="table-scroll">
+<table class="curriculum">
+  <caption class="visually-hidden">All 13 labs, by module</caption>
+  <thead>
+    <tr>
+      <th scope="col">Module</th>
+      <th scope="col">Lab</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Session Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="module-cell" rowspan="1">
+        <strong>Module 1</strong><br />
+        <span class="module-title-sub">Foundations</span>
+      </td>
+      <td class="lab-id-cell">1</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-1">DNN Training &amp; Robust Model Baselines</a></td>
+      <td class="lab-date-cell">02/09/2027</td>
+    </tr>
+    <tr>
+      <td class="module-cell" rowspan="1">
+        <strong>Module 2</strong><br />
+        <span class="module-title-sub">Input Manipulation</span>
+      </td>
+      <td class="lab-id-cell">2</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-2">Evasion Attacks (FGSM, PGD)</a></td>
+      <td class="lab-date-cell">02/16/2027</td>
+    </tr>
+    <tr>
+      <td class="module-cell" rowspan="2">
+        <strong>Module 3</strong><br />
+        <span class="module-title-sub">Data Poisoning</span>
+      </td>
+      <td class="lab-id-cell">3A</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-3a">Label Flipping Attacks</a></td>
+      <td class="lab-date-cell">02/23/2027</td>
+    </tr>
+    <tr>
+      <td class="lab-id-cell">3B</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-3b">Backdoor &amp; Trigger Injection</a></td>
+      <td class="lab-date-cell">03/02/2027</td>
+    </tr>
+    <tr>
+      <td class="module-cell" rowspan="2">
+        <strong>Module 4</strong><br />
+        <span class="module-title-sub">Model Poisoning</span>
+      </td>
+      <td class="lab-id-cell">4A</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-4a">Model Trojans &amp; Supply Chain Attacks</a></td>
+      <td class="lab-date-cell">03/09/2027</td>
+    </tr>
+    <tr>
+      <td class="lab-id-cell">4B</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-4b">Trojan Detection &amp; Certified Defenses</a></td>
+      <td class="lab-date-cell">03/16/2027</td>
+    </tr>
+    <tr>
+      <td class="module-cell" rowspan="2">
+        <strong>Module 5</strong><br />
+        <span class="module-title-sub">Availability</span>
+      </td>
+      <td class="lab-id-cell">5A</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-5a">Sponge Attacks &amp; Resource Exhaustion</a></td>
+      <td class="lab-date-cell">03/23/2027</td>
+    </tr>
+    <tr>
+      <td class="lab-id-cell">5B</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-5b">Sponge Attack Defenses</a></td>
+      <td class="lab-date-cell">03/30/2027</td>
+    </tr>
+    <tr>
+      <td class="module-cell" rowspan="2">
+        <strong>Module 6</strong><br />
+        <span class="module-title-sub">Confidentiality</span>
+      </td>
+      <td class="lab-id-cell">6A</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-6a">Membership Inference Attacks</a></td>
+      <td class="lab-date-cell">04/06/2027</td>
+    </tr>
+    <tr>
+      <td class="lab-id-cell">6B</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-6b">Model Inversion &amp; Feature Reconstruction</a></td>
+      <td class="lab-date-cell">04/13/2027</td>
+    </tr>
+    <tr>
+      <td class="module-cell" rowspan="1">
+        <strong>Module 7</strong><br />
+        <span class="module-title-sub">Synthetic Data</span>
+      </td>
+      <td class="lab-id-cell">7</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-7">Tabular Synthetic Data (VAE, GAN)</a></td>
+      <td class="lab-date-cell">04/20/2027</td>
+    </tr>
+    <tr>
+      <td class="module-cell" rowspan="2">
+        <strong>Module 8</strong><br />
+        <span class="module-title-sub">Defenses</span>
+      </td>
+      <td class="lab-id-cell">8A</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-8a">Differential Privacy &amp; DP-SGD</a></td>
+      <td class="lab-date-cell">04/27/2027</td>
+    </tr>
+    <tr>
+      <td class="lab-id-cell">8B</td>
+      <td><a href="/Intro-Data-Security/labs/#lab-8b">Federated Learning &amp; Adversarial Training</a></td>
+      <td class="lab-date-cell">05/04/2027</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="learning-outcomes">Learning Outcomes</h2>
+
+<p>By the end of this course, students will be able to:</p>
+
+<ul>
+  <li><strong>Understand</strong> fundamental security and privacy threat models across the machine learning lifecycle.</li>
+  <li><strong>Implement</strong> state-of-the-art adversarial attacks against deep neural networks in PyTorch.</li>
+  <li><strong>Evaluate</strong> model vulnerability using quantitative empirical metrics and certified robustness bounds.</li>
+  <li><strong>Design &amp; Deploy</strong> privacy-preserving and robust defenses, including Differential Privacy (DP-SGD), adversarial training, and federated learning protocols.</li>
+  <li><strong>Generate</strong> privacy-preserving synthetic tabular datasets for sensitive domain applications.</li>
+</ul>
+
+<h2 id="grading--evaluation">Grading &amp; Evaluation</h2>
+
+<p>Coursework is evaluated continuously throughout the 14-week practicum (<strong>Gyakorlati jegy</strong>). To ensure independent mastery in an AI-assisted environment, the majority of the grade is determined by supervised in-class practical milestones:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Weight</th>
+      <th>Assessment</th>
+      <th>Schedule &amp; Scope</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Attendance &amp; Participation</strong></td>
+      <td><strong>15%</strong></td>
+      <td>Weekly in-lab presence</td>
+      <td>Mandatory attendance (max 3 absences per TVSZ)</td>
+    </tr>
+    <tr>
+      <td><strong>Lab Exercises &amp; Oral Defense</strong></td>
+      <td><strong>25%</strong></td>
+      <td>In-class exercise checkoffs</td>
+      <td>Completed during lab and orally explained to instructor</td>
+    </tr>
+    <tr>
+      <td><strong>Midterm Practical Test (ZH 1)</strong></td>
+      <td><strong>30%</strong></td>
+      <td>In-class supervised test</td>
+      <td>Week 7 (Modules 1 to 4: Evasion &amp; Poisoning)</td>
+    </tr>
+    <tr>
+      <td><strong>End-Term Practical Test (ZH 2)</strong></td>
+      <td><strong>30%</strong></td>
+      <td>In-class supervised test</td>
+      <td>Week 14 (Modules 5 to 8: Privacy &amp; Defenses)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="grading-scale">Grading Scale</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grade</th>
+      <th>Percentage</th>
+      <th>Descriptor (HU)</th>
+      <th>Criteria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>5</strong></td>
+      <td>85% to 100%</td>
+      <td>Excellent (<em>Jeles</em>)</td>
+      <td>Comprehensive mastery of attack mechanics and defenses</td>
+    </tr>
+    <tr>
+      <td><strong>4</strong></td>
+      <td>70% to 84%</td>
+      <td>Good (<em>Jó</em>)</td>
+      <td>Solid practical implementation and analytical interpretation</td>
+    </tr>
+    <tr>
+      <td><strong>3</strong></td>
+      <td>55% to 69%</td>
+      <td>Satisfactory (<em>Közepes</em>)</td>
+      <td>Functional implementations with minor conceptual gaps</td>
+    </tr>
+    <tr>
+      <td><strong>2</strong></td>
+      <td>40% to 54%</td>
+      <td>Pass (<em>Elégséges</em>)</td>
+      <td>Reaches minimum passing threshold across evaluations</td>
+    </tr>
+    <tr>
+      <td><strong>1</strong></td>
+      <td>Below 40%</td>
+      <td>Fail (<em>Elégtelen</em>)</td>
+      <td>Below passing threshold or exceeded absence limit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="core-policies">Core Policies</h3>
+<ul>
+  <li><strong>Passing Threshold:</strong> Requires at least 40% (Grade 2) overall and at least 40% on each of the two in-class tests (ZH 1 and ZH 2).</li>
+  <li><strong>Retake Policy (Pótlás):</strong> In accordance with ELTE TVSZ, students may sit for one comprehensive retake examination (Pót-ZH) at semester end to make up or improve a test score.</li>
+  <li><strong>Attendance Limit:</strong> In accordance with ELTE TVSZ, missing more than 3 lab sessions results in refusal of the practical mark.</li>
+  <li><strong>AI &amp; Oral Explanation Policy:</strong> AI code assistants may be used to generate or refine code. However, credit is awarded exclusively when the student demonstrates full comprehension by clearly explaining the code logic, algorithm mechanics, and experimental observations. Inability to explain code results in zero credit for the exercise.</li>
+</ul>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+  <li>Check the <a href="/Intro-Data-Security/schedule/">Schedule</a> for weekly lab sessions and evaluation milestones.</li>
+  <li>Open the <a href="/Intro-Data-Security/labs/">Labs</a> page to access interactive notebooks and launch them in Google Colab using your Google account.</li>
+  <li>Consult the <a href="/Intro-Data-Security/resources/">Resources</a> page for setup recommendations, background reading, and tools.</li>
+</ol>
+
+
+  <br>
+  <div class="people-row">
+    <div class="people-col">
+      <h2>Instructors</h2>
+      <div class="profile-pic-gallary">
+        
+          <div class="image--cover-container person-card">
+  <img src="/Intro-Data-Security/_images/pp/imre.png" class="image--cover" alt="Imre Lendák">
+  <p><a href="https://www.inf.elte.hu/en/staff/imre-lendak">Imre Lendák</a></p>
+  <p class="person-role">Associate Professor</p>
+</div>
+        
+      </div>
+    </div>
+    <div class="people-col">
+      <h2>Teaching Assistants</h2>
+      <div class="profile-pic-gallary">
+        
+          <div class="image--cover-container person-card">
+  <img src="/Intro-Data-Security/_images/pp/ahmed.jpg" class="image--cover" alt="Ahmed Fouad Lagha">
+  <p><a href="https://ahmed-fouad-lagha.github.io">Ahmed Fouad Lagha</a></p>
+  <p class="person-role">PhD Candidate</p>
+</div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-grid">
+
+      <div class="footer-col-main">
+        <h3 class="footer-course-title">Introduction to Data Security Practicum</h3>
+        <p class="footer-term">Spring 2027</p>
+        <p class="footer-address">Department of Data Science and Engineering<br />
+Faculty of Informatics, Eötvös Loránd University<br />
+1117 Budapest, Pázmány Péter sétány 1/C, Hungary<br />
+</p>
+      </div>
+
+      <div class="footer-col-nav">
+        <h4 class="footer-heading">Course</h4>
+        <ul>
+          <li><a href="/Intro-Data-Security/">Overview</a></li>
+          <li><a href="/Intro-Data-Security/schedule/">Schedule</a></li>
+          <li><a href="/Intro-Data-Security/labs/">Labs</a></li>
+          <li><a href="/Intro-Data-Security/resources/">Resources</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col-connect">
+        <h4 class="footer-heading">Connect</h4>
+        <ul>
+          <li>
+            <a href="https://www.inf.elte.hu/en" target="_blank" rel="noopener">
+              <i class="fas fa-university" aria-hidden="true"></i> Faculty of Informatics
+            </a>
+          </li>
+          <li>
+            <a href="https://www.elte.hu" target="_blank" rel="noopener">
+              <i class="fas fa-globe" aria-hidden="true"></i> elte.hu
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ELTE-DSED/Intro-Data-Security" target="_blank" rel="noopener">
+              <i class="fab fa-github" aria-hidden="true"></i> GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/elte-faculty-of-informatics-en" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2027 Eötvös Loránd University &middot; Department of Data Science and Engineering. Course materials licensed under MIT.</p>
+    </div>
+
+  </div>
+
+</footer>
+  </body>
+
+</html>
+<!-- d.s.m.s.050600.062508.030515.080516.030818 | "Baby, I'm Yours" -->
