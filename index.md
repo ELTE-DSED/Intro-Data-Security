@@ -49,11 +49,11 @@ The curriculum spans 8 core modules across the 14-week practicum. Select any lab
 
 By the end of this course, students will be able to:
 
-- **Understand** fundamental security and privacy threat models across the machine learning lifecycle.
-- **Implement** state-of-the-art adversarial attacks against deep neural networks in PyTorch.
-- **Evaluate** model vulnerability using quantitative empirical metrics and certified robustness bounds.
-- **Design & Deploy** privacy-preserving and robust defenses, including Differential Privacy (DP-SGD), adversarial training, and federated learning protocols.
-- **Generate** privacy-preserving synthetic tabular datasets for sensitive domain applications.
+- **Analyze** adversarial threat models across both classical deep learning and foundation model lifecycles.
+- **Implement & Benchmark** adversarial evasion, poisoning, trojans, and prompt injection attacks in PyTorch using industrial toolkits (**Foolbox**, **ART**).
+- **Audit & Quantify** privacy leakage (Membership Inference, Model Inversion) under regulatory frameworks like GDPR.
+- **Design & Deploy** mathematically certified and empirical defenses, including Differential Privacy (DP-SGD with **Opacus**), robust adversarial training, and federated learning protocols.
+- **Synthesize** privacy-preserving tabular datasets using generative models (VAEs, CTGAN) for safe data sharing.
 
 ## Grading & Evaluation
 
