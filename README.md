@@ -73,4 +73,4 @@ The site is served locally at <http://127.0.0.1:4000/Intro-Data-Security/>.
 
 ---
 
-© 2027 ELTE Faculty of Informatics, Department of Data Science and Engineering
+© 2027 ELTE Faculty of Informatics (IK)
