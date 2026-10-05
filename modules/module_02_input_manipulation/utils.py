@@ -22,7 +22,7 @@ def load_example_image(preprocess=True):
     dataset = torchvision.datasets.MNIST(
         root='./data', 
         train=False, 
-        download=False, 
+        download=True, 
         transform=transforms.ToTensor()
     )
     img_tensor, label = dataset[0] # Get the first sample (a '7')
