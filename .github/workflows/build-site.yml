@@ -80,13 +80,13 @@ jobs:
             fi
           }
 
-          expect _site/labs/index.html        13 'colab-badge\.svg'       'labs: Colab badges rendered'
+          expect _site/labs/index.html        11 'colab-badge\.svg'       'labs: Colab badges rendered'
           expect _site/index.html              1 'announcement-box'       'home: Updates box rendered'
           expect _site/index.html              8 'Module [0-9]'           'home: lists 8 thematic modules'
-          expect _site/labs/index.html        13 'id="lab-'               'labs: one anchor per lab'
+          expect _site/labs/index.html        11 'id="lab-'               'labs: one anchor per lab'
           expect _site/labs/index.html         8 'id="module-'            'labs: one heading per module'
-          expect _site/labs/index.html         1 'Federated Learning'     'labs: last lab rendered'
-          expect _site/schedule/index.html    16 'class="table-row'      'schedule: 13 labs + 3 events'
+          expect _site/labs/index.html         1 'Prompt Injection'       'labs: GenAI security lab rendered'
+          expect _site/schedule/index.html    15 'class="table-row'      'schedule: 11 labs + 4 events'
           expect _site/resources/index.html    1 'Google Colab'           'resources: setup notes rendered'
 
           # The curriculum table on the home page is wrapped in .table-scroll
