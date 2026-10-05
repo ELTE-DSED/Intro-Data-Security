@@ -1,53 +1,52 @@
 # ==========================================================
-#  The 8 modules of the course.
+#  The 8 modules of the course (2027 Modernized Edition).
 #  `number` must match the `module` field of the labs in _data/labs.yml
 # ==========================================================
 
 - number: 1
   title: Foundations
   overview: >-
-    This module covers the foundational aspects of deep neural network (DNN)
-    training and establishes the robust model baselines that the rest of the
-    course measures against.
+    Foundational principles of deep neural network (DNN) training, loss landscapes,
+    and establishing robust model baselines in PyTorch.
 
 - number: 2
   title: Input Manipulation
   overview: >-
-    Focuses on evasion attacks, which target the input data to deceive machine
-    learning models at inference time.
+    Evasion attacks at inference time (FGSM, PGD) evaluated using bare-metal
+    PyTorch hooks and benchmarked with Foolbox and the Adversarial Robustness Toolbox (ART).
 
 - number: 3
-  title: Data Poisoning
+  title: Poisoning & Supply Chain
   overview: >-
-    Examines how training data can be manipulated to compromise the integrity of
-    the resulting model.
+    Manipulating training datasets and pre-trained checkpoints through label flipping,
+    clean-label backdoors, and model trojans, alongside certified detection methods.
 
 - number: 4
-  title: Model Poisoning
+  title: Availability & Resource Exhaustion
   overview: >-
-    Investigates attacks that target the model directly, often by way of supply
-    chain vulnerabilities in published pre-trained weights.
+    Sponge attacks and latency inflation designed to exhaust computational and energy
+    resources in deployed edge and cloud models, paired with saturation defenses.
 
 - number: 5
-  title: Availability
+  title: Confidentiality & Privacy Auditing
   overview: >-
-    Covers attacks designed to exhaust system resources and reduce the
-    availability of a model.
+    Auditing training data leakage via Membership Inference Attacks (MIA) using ART,
+    as well as model inversion and feature reconstruction threats under GDPR constraints.
 
 - number: 6
-  title: Confidentiality
+  title: Synthetic Data Generation
   overview: >-
-    Explores attacks that aim to leak sensitive information from the model or
-    from the data it was trained on.
+    Privacy-preserving synthetic tabular data generation using Variational Autoencoders (VAEs)
+    and Generative Adversarial Networks (GANs/CTGAN) to share data safely.
 
 - number: 7
-  title: Synthetic Data
+  title: Provable Defenses
   overview: >-
-    Methods for generating privacy-preserving synthetic data that can stand in
-    for sensitive real-world records.
+    Formal privacy guarantees via Differential Privacy (DP-SGD) with Meta's Opacus library,
+    combined with Federated Learning and adversarial robust training.
 
 - number: 8
-  title: Defenses
+  title: GenAI & LLM Security
   overview: >-
-    Comprehensive strategies for defending machine learning models, from formal
-    privacy guarantees to robust training.
+    Security risks in Large Language Models and Foundation Models, including indirect
+    prompt injection, automated jailbreaking (GCG), safety alignment auditing, and RAG poisoning.

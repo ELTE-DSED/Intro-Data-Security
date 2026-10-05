@@ -12,13 +12,21 @@
 #    content     detailed description on the Schedule page
 # ==========================================================
 
+- id: audit_clinic
+  type: raw_event
+  name: Workshop
+  date: 2027-03-16T10:00:00+01:00
+  description: Midterm Adversarial Security Clinic
+  hide_time: false
+  content: Hands-on collaborative peer auditing clinic, live attack debugging, and practical preparation for Midterm ZH 1.
+
 - id: midterm_zh
   type: raw_event
   name: Evaluation
   date: 2027-03-23T10:00:00+01:00
   description: Midterm Practical Evaluation (ZH 1)
   hide_time: false
-  content: In-class supervised practical test covering Modules 1 through 4 (Foundations, Evasion, and Poisoning).
+  content: In-class supervised practical evaluation covering Modules 1 through 4 (Foundations, Evasion, Poisoning, and Availability).
 
 - id: easter_break
   type: raw_event
@@ -34,4 +42,4 @@
   date: 2027-05-11T10:00:00+02:00
   description: End-Term Practical Evaluation (ZH 2)
   hide_time: false
-  content: In-class supervised practical test covering Modules 5 through 8 (Privacy, Synthetic Data, and Defenses).
+  content: In-class supervised practical evaluation covering Modules 5 through 8 (Confidentiality, Synthetic Data, Provable Defenses, and GenAI Security).

@@ -38,9 +38,9 @@ source venv/bin/activate
 pip install torch torchvision torchaudio
 pip install numpy scipy scikit-learn pandas matplotlib seaborn jupyterlab
 
-# Security, robustness, and privacy toolkits
-pip install adversarial-robustness-toolbox
-pip install opacus
+# Security, robustness, privacy, and LLM toolkits
+pip install adversarial-robustness-toolbox foolbox opacus
+pip install transformers accelerate
 ```
 
 Start the Jupyter environment with:
@@ -58,20 +58,20 @@ The following open-source frameworks provide state-of-the-art implementations of
 - **[Adversarial Robustness Toolbox (ART)](https://github.com/trusted-ai/adversarial-robustness-toolbox)** (IBM / Linux Foundation)  
   A comprehensive Python library for machine learning security providing defense and evaluation against evasion, poisoning, extraction, and inference across all major ML frameworks (PyTorch, TensorFlow, Scikit-learn, ONNX).
 
-- **[SecML: Secure Machine Learning](https://github.com/pralab/secml)** (PRALab, University of Cagliari)  
-  A Python library for secure and explainable machine learning developed by Prof. Battista Biggio's research team, featuring gradient-based evasion and poisoning attacks.
+- **[Foolbox](https://github.com/bethgelab/foolbox)** (Bethge Lab, University of Tübingen)  
+  A high-performance Python toolbox that lets you benchmark the adversarial robustness of neural networks with native PyTorch support and standardized $L_p$ perturbation metrics.
 
 - **[Opacus](https://github.com/pytorch/opacus)** (Meta / PyTorch)  
   A high-speed, scalable library for training PyTorch models with Differential Privacy (DP-SGD) with minimal code changes and minimal performance overhead.
 
+- **[SecML: Secure Machine Learning](https://github.com/pralab/secml)** (PRALab, University of Cagliari)  
+  A Python library for secure and explainable machine learning developed by Prof. Battista Biggio's research team, featuring gradient-based evasion and poisoning attacks.
+
 - **[PySyft](https://github.com/OpenMined/PySyft)** (OpenMined)  
   A foundational library for secure, privacy-preserving computation, federated learning, and remote data science using secure multi-party computation and differential privacy.
 
-- **[mlsec Course Repository](https://github.com/unica-mlsec/mlsec)** (Prof. Battista Biggio, University of Cagliari)  
-  Lecture materials, laboratory exercises, and attack implementations from one of the pioneering academic courses in machine learning security.
-
-- **[CleverHans](https://github.com/cleverhans-lab/cleverhans)**  
-  One of the earliest benchmark adversarial example libraries for PyTorch and TensorFlow, maintained by Ian Goodfellow and Nicolas Papernot.
+- **[Hugging Face Transformers](https://github.com/huggingface/transformers)**  
+  The industry-standard library for loading, fine-tuning, and red-teaming open-source foundation models and generative AI systems.
 
 ---
 
@@ -155,7 +155,20 @@ The following open-source frameworks provide state-of-the-art implementations of
   Demonstrates practical query-based extraction of proprietary model parameters and hyperplanes across commercial ML services.  
   [arXiv:1609.02943](https://arxiv.org/abs/1609.02943)
 
+### Generative AI & Foundation Model Security
+
+- **Universal and Transferable Adversarial Attacks on Aligned Language Models**  
+  *Andy Zou, Zifan Wang, J. Zico Kolter, Matt Fredrikson* (arXiv 2023)  
+  Introduces Greedy Coordinate Gradient (GCG) search, demonstrating that token suffixes can reliably bypass alignment across proprietary and open-source LLMs.  
+  [arXiv:2307.15043](https://arxiv.org/abs/2307.15043)
+
+- **Not what you've signed up for: Compromising Real-World LLM Applications with Indirect Prompt Injection**  
+  *Kai Greshake, Sahar Abdelnabi, Shailesh Mishra, Christoph Endres, Thorsten Holz, Mario Fritz* (AISec 2023)  
+  Formalizes indirect prompt injection as a fundamental threat vector where untrusted data sources hijack autonomous LLM application control flow.  
+  [arXiv:2302.12173](https://arxiv.org/abs/2302.12173)
+
 ---
+
 
 ## Academic Integrity & Responsible Research
 

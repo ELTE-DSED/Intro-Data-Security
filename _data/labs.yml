@@ -1,16 +1,13 @@
 # ==========================================================
-#  Every lab on the site is defined here.
+#  Every lab on the site is defined here (2027 Modernized Edition).
 #
 #  This is the ONLY file you need to edit to change a lab's
 #  title, description, date, or notebook.
 #
 #  > Timetable: one lab per week, Tuesdays, starting 2027-02-09.
-#  >
-#  > Every `date` carries an explicit UTC offset. Budapest is +01:00 in winter
-#  > and +02:00 from the last Sunday of March, so the offset flips partway
-#  > through the term.
+#  > Every `date` carries an explicit UTC offset (+01:00 winter, +02:00 summer).
 #
-#  Fields
+#  Fields:
 #    id       anchor / unique id (used for links, must be unique)
 #    module   module number this lab belongs to (see _data/modules.yml)
 #    title    lab title shown on the Labs and Schedule pages
@@ -21,91 +18,77 @@
 
 - id: lab-1
   module: 1
-  title: DNN Training & Robust Model Baselines
+  title: "DNN Training & Robust Model Baselines"
   date: 2027-02-09T10:00:00+01:00
   notebook: modules/module_01_foundations/Lab1_DNN_Training_and_Robust_Models.ipynb
-  summary: Train a deep neural network from scratch and measure its accuracy as a robust baseline.
+  summary: "Train a deep neural network from scratch and measure its clean accuracy as a robust baseline."
 
 - id: lab-2
   module: 2
-  title: Evasion Attacks (FGSM, PGD)
+  title: "Evasion Attacks (FGSM, PGD & Foolbox)"
   date: 2027-02-16T10:00:00+01:00
   notebook: modules/module_02_input_manipulation/Lab2_Evasion_Attacks.ipynb
-  summary: Craft adversarial inputs with Fast Gradient Sign Method and Projected Gradient Descent.
+  summary: "Craft adversarial perturbations via bare-metal PyTorch and benchmark multi-step attacks using Foolbox."
 
 - id: lab-3a
   module: 3
-  title: Label Flipping Attacks
+  title: "Data Poisoning & Trigger Injection"
   date: 2027-02-23T10:00:00+01:00
-  notebook: modules/module_03_data_poisoning/Lab_3a_Data_Poisoning_Label_Flipping.ipynb
-  summary: Poison the training set by flipping labels and observe the drop in model performance.
+  notebook: modules/module_03_poisoning_and_trojans/Lab_3a_Data_Poisoning_and_Backdoors.ipynb
+  summary: "Poison training datasets with clean-label backdoors and observe model failure modes on demand."
 
 - id: lab-3b
   module: 3
-  title: Backdoor & Trigger Injection
+  title: "Model Trojans & Certified Defenses"
   date: 2027-03-02T10:00:00+01:00
-  notebook: modules/module_03_data_poisoning/Lab_3b_Data_Poisoning_Backdoor_Attacks.ipynb
-  summary: Implement a backdoor attack where a hidden trigger makes the model misbehave on demand.
+  notebook: modules/module_03_poisoning_and_trojans/Lab_3b_Model_Trojans_and_Certified_Defenses.ipynb
+  summary: "Audit pre-trained checkpoints for embedded trojans and apply Neural Cleanse detection filters."
 
-- id: lab-4a
+- id: lab-4
   module: 4
-  title: Model Trojans & Supply Chain Attacks
+  title: "Sponge Attacks & Energy Exhaustion Defenses"
   date: 2027-03-09T10:00:00+01:00
-  notebook: modules/module_04_model_poisoning/Lab_4a_Model_Trojans_and_Supply_Chain_Attacks.ipynb
-  summary: Analyse how a Trojan can be embedded into a pre-trained model before it is published.
-
-- id: lab-4b
-  module: 4
-  title: Trojan Detection & Certified Defenses
-  date: 2027-03-16T10:00:00+01:00
-  notebook: modules/module_04_model_poisoning/Lab_4b_Trojan_Detection_and_Certified_Defenses.ipynb
-  summary: Detect embedded Trojans and build defences with certified robustness guarantees.
+  notebook: modules/module_04_availability/Lab_4_Sponge_Attacks_and_Resource_Defenses.ipynb
+  summary: "Measure inference latency inflation and implement input validation and timeout defenses."
 
 - id: lab-5a
   module: 5
-  title: Sponge Attacks & Resource Exhaustion
-  date: 2027-03-23T10:00:00+01:00
-  notebook: modules/module_05_sponge_attacks/Lab_5a_Sponge_Attacks_and_Resource_Exhaustion.ipynb
-  summary: Measure how a sponge example inflates inference energy consumption and latency.
+  title: "Membership Inference Attacks with ART"
+  date: 2027-03-30T10:00:00+02:00
+  notebook: modules/module_05_confidentiality/Lab_5a_Membership_Inference_Attacks.ipynb
+  summary: "Audit training data leakage and compute Membership Advantage using Adversarial Robustness Toolbox (ART)."
 
 - id: lab-5b
   module: 5
-  title: Sponge Attack Defenses
-  date: 2027-03-30T10:00:00+02:00
-  notebook: modules/module_05_sponge_attacks/Lab_5b_Sponge_Attack_Defenses_and_Resource_Constraints.ipynb
-  summary: Defend against resource exhaustion using input constraints and neuron saturation.
-
-- id: lab-6a
-  module: 6
-  title: Membership Inference Attacks
+  title: "Model Inversion & Feature Reconstruction"
   date: 2027-04-06T10:00:00+02:00
-  notebook: modules/module_06_confidentiality_attacks/Lab_6a_Membership_Inference_Attacks.ipynb
-  summary: Determine whether a specific record was part of the model's training set.
+  notebook: modules/module_05_confidentiality/Lab_5b_Model_Inversion_Attacks_and_Defenses.ipynb
+  summary: "Reconstruct private input features from output confidence vectors under black-box threat models."
 
-- id: lab-6b
+- id: lab-6
   module: 6
-  title: Model Inversion & Feature Reconstruction
+  title: "Tabular Synthetic Data (VAE, CTGAN)"
   date: 2027-04-13T10:00:00+02:00
-  notebook: modules/module_06_confidentiality_attacks/Lab_6b_Model_Inversion_Attacks_and_Defenses.ipynb
-  summary: Reconstruct sensitive features or training points from model predictions alone.
+  notebook: modules/module_06_synthetic_data/Lab_6_Tabular_Synthetic_Data_Generation.ipynb
+  summary: "Generate privacy-preserving tabular synthetic records using VAEs and conditional GANs for safe sharing."
 
-- id: lab-7
+- id: lab-7a
   module: 7
-  title: Tabular Synthetic Data (VAE, GAN)
+  title: "Differential Privacy & DP-SGD with Opacus"
   date: 2027-04-20T10:00:00+02:00
-  notebook: modules/module_07_synthetic_data_generation/Lab_7_Tabular_Synthetic_Data_Generation.ipynb
-  summary: Generate privacy-preserving tabular data with Variational Autoencoders and GANs.
+  notebook: modules/module_07_defenses/Lab_7a_Differential_Privacy_and_DP_SGD.ipynb
+  summary: "Train models with formal differential privacy guarantees using Meta's Opacus library."
 
-- id: lab-8a
-  module: 8
-  title: Differential Privacy & DP-SGD
+- id: lab-7b
+  module: 7
+  title: "Federated Learning & Adversarial Training"
   date: 2027-04-27T10:00:00+02:00
-  notebook: modules/module_08_defenses/Lab_8a_Differential_Privacy_and_DP_SGD.ipynb
-  summary: Add formal privacy guarantees to model training with Differential Privacy and DP-SGD.
+  notebook: modules/module_07_defenses/Lab_7b_Federated_Learning_and_Adversarial_Training.ipynb
+  summary: "Implement decentralized federated averaging and robust min-max adversarial training."
 
-- id: lab-8b
+- id: lab-8
   module: 8
-  title: Federated Learning & Adversarial Training
+  title: "LLM Security: Prompt Injection & Jailbreaking"
   date: 2027-05-04T10:00:00+02:00
-  notebook: modules/module_08_defenses/Lab_8b_Federated_Learning_and_Adversarial_Training.ipynb
-  summary: Harden models with federated learning and adversarial robust training.
+  notebook: modules/module_08_genai_security/Lab_8_LLM_Security_Prompt_Injection_and_Jailbreaks.ipynb
+  summary: "Red-team foundation models against direct and indirect prompt injection, GCG jailbreaking, and RAG poisoning."
