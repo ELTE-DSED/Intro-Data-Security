@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+
+
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Labs - Introduction to Data Security Practicum / Spring 2027 </title>
+  <meta name="description" content="Labs - Introduction to Data Security Practicum / Spring 2027">
+
+  <!-- Open Graph / Social Sharing (Facebook, LinkedIn, WhatsApp, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elte-dsed.github.io/Intro-Data-Security/labs/">
+  <meta property="og:title" content="Labs - Introduction to Data Security Practicum">
+  <meta property="og:description" content="Machine learning models are increasingly deployed in security-critical settings, including medical diagnostics, autonomous vehicles, and financial fraud dete...">
+  <meta property="og:image" content="https://elte-dsed.github.io/Intro-Data-Security/_images/og-image.png">
+  <meta property="og:image:secure_url" content="https://elte-dsed.github.io/Intro-Data-Security/_images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Introduction to Data Security Practicum / Spring 2027">
+  <meta property="og:site_name" content="Eötvös Loránd University">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Labs - Introduction to Data Security Practicum">
+  <meta name="twitter:description" content="Machine learning models are increasingly deployed in security-critical settings, including medical diagnostics, autonomous vehicles, and financial fraud dete...">
+  <meta name="twitter:image" content="https://elte-dsed.github.io/Intro-Data-Security/_images/og-image.png">
+  <meta name="twitter:image:alt" content="Introduction to Data Security Practicum / Spring 2027">
+  
+  <link rel="icon" type="image/svg+xml" href="/Intro-Data-Security/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Intro-Data-Security/_images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Intro-Data-Security/_images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Intro-Data-Security/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/Intro-Data-Security/favicon.ico">
+
+  <link rel="stylesheet" href="/Intro-Data-Security/_css/main.css">
+  <link rel="canonical" href="https://elte-dsed.github.io/Intro-Data-Security/labs/">
+<link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.2.4' type='text/css' media='all' />
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:600italic,600,400,400italic' rel='stylesheet' type='text/css'>
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"><script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper header-inner"><div class="header-brand">
+          <div class="header-logo-cell">
+            <a href="/Intro-Data-Security/" aria-label="Introduction to Data Security Practicum">
+              <img class="site-logo" src="/Intro-Data-Security/_images/logo.svg" alt="Eötvös Loránd University">
+            </a>
+          </div>
+          <div class="header-title-cell">
+            <a class="schoolname" href="https://www.elte.hu" target="_blank" rel="noopener">Eötvös Loránd University</a>
+            <br/>
+            <span class="site-title"><a href="/Intro-Data-Security/" title="Introduction to Data Security Practicum / Spring 2027 - Eötvös Loránd University"><b>Introduction to Data Security Practicum</b></a></span>
+            <br/>
+            <span class="coursesemester">Spring 2027</span>
+          </div>
+      </div>
+
+    <nav class="site-nav">
+
+      <a href="#" class="menu-icon menu.open" aria-label="Toggle navigation">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+    <div class="trigger"><h1 class="visually-hidden">Main Navigation</h1>
+
+ <ul class="menu">
+    
+    <li>
+        <a class="page-link" href="/Intro-Data-Security/">
+            <i class="fa fa-home fa-lg"></i> Home
+        </a>
+    </li>
+    
+    <li>
+        <a class="page-link" href="/Intro-Data-Security/schedule/">
+            <i class="fas fa-calendar-alt"></i> Schedule
+        </a>
+    </li>
+    
+    <li>
+        <a class="page-link" href="/Intro-Data-Security/labs/">
+            <i class="fas fa-flask"></i> Labs
+        </a>
+    </li>
+    
+    <li>
+        <a class="page-link" href="/Intro-Data-Security/resources/">
+            <i class="fas fa-book"></i> Resources
+        </a>
+    </li>
+    
+</ul>
+
+     </div>
+    </nav>
+
+  </div>
+
+  <div class="header-texture" style="background-image: url('/Intro-Data-Security/_images/pattern.png');" />
+
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <header class="post-header">
+    <h1 class="post-title">Labs</h1>
+</header>
+
+<p>All labs are interactive Jupyter notebooks designed to run directly in Google Colab with no local setup required. Click <strong>Open in Colab</strong> on any lab to launch the notebook environment and save your progress to Google Drive.</p>
+
+<p>For hardware acceleration (T4 GPU) and optional local Python environment setup, consult the <a href="/Intro-Data-Security/resources/">Resources</a> page.</p>
+
+
+
+<section class="lab-module">
+    <h2 id="module-1">Module 1: Foundations</h2>
+
+    <div class="markdown-content">
+        <p>Foundational principles of deep neural network (DNN) training, loss landscapes, and establishing robust model baselines in PyTorch.</p>
+    </div>
+
+    <ul class="lab-list">
+    
+        
+        <li id="lab-1" class="lab-item">
+            <div class="lab-item-head">
+                <h3>DNN Training & Robust Model Baselines</h3>
+                <span class="lab-date">02/09/2027</span>
+            </div>
+            <p class="lab-summary">Train a deep neural network from scratch and measure its clean accuracy as a robust baseline.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_01_foundations/Lab1_DNN_Training_and_Robust_Models.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+</section>
+
+<section class="lab-module">
+    <h2 id="module-2">Module 2: Input Manipulation</h2>
+
+    <div class="markdown-content">
+        <p>Evasion attacks at inference time (FGSM, PGD) evaluated using bare-metal PyTorch hooks and benchmarked with Foolbox and the Adversarial Robustness Toolbox (ART).</p>
+    </div>
+
+    <ul class="lab-list">
+    
+        
+    
+        
+        <li id="lab-2" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Evasion Attacks (FGSM, PGD & Foolbox)</h3>
+                <span class="lab-date">02/16/2027</span>
+            </div>
+            <p class="lab-summary">Craft adversarial perturbations via bare-metal PyTorch and benchmark multi-step attacks using Foolbox.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_02_input_manipulation/Lab2_Evasion_Attacks.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+</section>
+
+<section class="lab-module">
+    <h2 id="module-3">Module 3: Poisoning & Supply Chain</h2>
+
+    <div class="markdown-content">
+        <p>Manipulating training datasets and pre-trained checkpoints through label flipping, clean-label backdoors, and model trojans, alongside certified detection methods.</p>
+    </div>
+
+    <ul class="lab-list">
+    
+        
+    
+        
+    
+        
+        <li id="lab-3a" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Data Poisoning & Trigger Injection</h3>
+                <span class="lab-date">02/23/2027</span>
+            </div>
+            <p class="lab-summary">Poison training datasets with clean-label backdoors and observe model failure modes on demand.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_03_poisoning_and_trojans/Lab_3a_Data_Poisoning_and_Backdoors.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+        <li id="lab-3b" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Model Trojans & Certified Defenses</h3>
+                <span class="lab-date">03/02/2027</span>
+            </div>
+            <p class="lab-summary">Audit pre-trained checkpoints for embedded trojans and apply Neural Cleanse detection filters.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_03_poisoning_and_trojans/Lab_3b_Model_Trojans_and_Certified_Defenses.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+</section>
+
+<section class="lab-module">
+    <h2 id="module-4">Module 4: Availability & Resource Exhaustion</h2>
+
+    <div class="markdown-content">
+        <p>Sponge attacks and latency inflation designed to exhaust computational and energy resources in deployed edge and cloud models, paired with saturation defenses.</p>
+    </div>
+
+    <ul class="lab-list">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <li id="lab-4" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Sponge Attacks & Energy Exhaustion Defenses</h3>
+                <span class="lab-date">03/09/2027</span>
+            </div>
+            <p class="lab-summary">Measure inference latency inflation and implement input validation and timeout defenses.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_04_availability/Lab_4_Sponge_Attacks_and_Resource_Defenses.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+</section>
+
+<section class="lab-module">
+    <h2 id="module-5">Module 5: Confidentiality & Privacy Auditing</h2>
+
+    <div class="markdown-content">
+        <p>Auditing training data leakage via Membership Inference Attacks (MIA) using ART, as well as model inversion and feature reconstruction threats under GDPR constraints.</p>
+    </div>
+
+    <ul class="lab-list">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <li id="lab-5a" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Membership Inference Attacks with ART</h3>
+                <span class="lab-date">03/30/2027</span>
+            </div>
+            <p class="lab-summary">Audit training data leakage and compute Membership Advantage using Adversarial Robustness Toolbox (ART).</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_05_confidentiality/Lab_5a_Membership_Inference_Attacks.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+        <li id="lab-5b" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Model Inversion & Feature Reconstruction</h3>
+                <span class="lab-date">04/06/2027</span>
+            </div>
+            <p class="lab-summary">Reconstruct private input features from output confidence vectors under black-box threat models.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_05_confidentiality/Lab_5b_Model_Inversion_Attacks_and_Defenses.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+</section>
+
+<section class="lab-module">
+    <h2 id="module-6">Module 6: Synthetic Data Generation</h2>
+
+    <div class="markdown-content">
+        <p>Privacy-preserving synthetic tabular data generation using Variational Autoencoders (VAEs) and Generative Adversarial Networks (GANs/CTGAN) to share data safely.</p>
+    </div>
+
+    <ul class="lab-list">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <li id="lab-6" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Tabular Synthetic Data (VAE, CTGAN)</h3>
+                <span class="lab-date">04/13/2027</span>
+            </div>
+            <p class="lab-summary">Generate privacy-preserving tabular synthetic records using VAEs and conditional GANs for safe sharing.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_06_synthetic_data/Lab_6_Tabular_Synthetic_Data_Generation.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+    
+        
+    
+        
+    
+    </ul>
+</section>
+
+<section class="lab-module">
+    <h2 id="module-7">Module 7: Provable Defenses</h2>
+
+    <div class="markdown-content">
+        <p>Formal privacy guarantees via Differential Privacy (DP-SGD) with Meta's Opacus library, combined with Federated Learning and adversarial robust training.</p>
+    </div>
+
+    <ul class="lab-list">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <li id="lab-7a" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Differential Privacy & DP-SGD with Opacus</h3>
+                <span class="lab-date">04/20/2027</span>
+            </div>
+            <p class="lab-summary">Train models with formal differential privacy guarantees using Meta's Opacus library.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_07_defenses/Lab_7a_Differential_Privacy_and_DP_SGD.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+        <li id="lab-7b" class="lab-item">
+            <div class="lab-item-head">
+                <h3>Federated Learning & Adversarial Training</h3>
+                <span class="lab-date">04/27/2027</span>
+            </div>
+            <p class="lab-summary">Implement decentralized federated averaging and robust min-max adversarial training.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_07_defenses/Lab_7b_Federated_Learning_and_Adversarial_Training.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+        
+    
+    </ul>
+</section>
+
+<section class="lab-module">
+    <h2 id="module-8">Module 8: GenAI & LLM Security</h2>
+
+    <div class="markdown-content">
+        <p>Security risks in Large Language Models and Foundation Models, including indirect prompt injection, automated jailbreaking (GCG), safety alignment auditing, and RAG poisoning.</p>
+    </div>
+
+    <ul class="lab-list">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <li id="lab-8" class="lab-item">
+            <div class="lab-item-head">
+                <h3>LLM Security: Prompt Injection & Jailbreaking</h3>
+                <span class="lab-date">05/04/2027</span>
+            </div>
+            <p class="lab-summary">Red-team foundation models against direct and indirect prompt injection, GCG jailbreaking, and RAG poisoning.</p>
+            <div class="lab-buttons">
+                <a class="colab-badge" href="https://colab.research.google.com/github/ELTE-DSED/Intro-Data-Security/blob/main/modules/module_08_genai_security/Lab_8_LLM_Security_Prompt_Injection_and_Jailbreaks.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
+            </div>
+        </li>
+        
+    
+    </ul>
+</section>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-grid">
+
+      <div class="footer-col-main">
+        <h3 class="footer-course-title">Introduction to Data Security Practicum</h3>
+        <p class="footer-term">Spring 2027</p>
+        <p class="footer-address">Faculty of Informatics (IK), Eötvös Loránd University<br />
+1117 Budapest, Pázmány Péter sétány 1/C, Hungary<br />
+</p>
+      </div>
+
+      <div class="footer-col-nav">
+        <h4 class="footer-heading">Course</h4>
+        <ul>
+          <li><a href="/Intro-Data-Security/">Overview</a></li>
+          <li><a href="/Intro-Data-Security/schedule/">Schedule</a></li>
+          <li><a href="/Intro-Data-Security/labs/">Labs</a></li>
+          <li><a href="/Intro-Data-Security/resources/">Resources</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col-connect">
+        <h4 class="footer-heading">Connect</h4>
+        <ul>
+          <li>
+            <a href="https://www.inf.elte.hu/en" target="_blank" rel="noopener">
+              <i class="fas fa-university" aria-hidden="true"></i> Faculty of Informatics (IK)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.elte.hu" target="_blank" rel="noopener">
+              <i class="fas fa-globe" aria-hidden="true"></i> elte.hu
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ELTE-DSED/Intro-Data-Security" target="_blank" rel="noopener">
+              <i class="fab fa-github" aria-hidden="true"></i> GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/elte-faculty-of-informatics-en" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2027 Eötvös Loránd University &middot; Faculty of Informatics (IK). Course materials licensed under MIT.</p>
+    </div>
+
+  </div>
+
+</footer>
+  </body>
+
+</html>
+<!-- d.s.m.s.050600.062508.030515.080516.030818 | "Baby, I'm Yours" -->
